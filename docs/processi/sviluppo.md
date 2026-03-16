@@ -19,6 +19,8 @@ La fase successiva consiste nell'abbozzare la business logic. A questo punto i c
 
 È quindi possibile sviluppare interamente **sotto test di integrazione** tutte le parti di business logic, prima ancora di toccare l'interfaccia utente.
 
+Una volta completata la modellazione del caso d'uso, l'implementazione della **business logic** e della **UI** possono procedere in parallelo.
+
 ## Step opzionale: validazione con l'analista funzionale
 
 Al termine dello sviluppo del caso d'uso, è consigliabile condividere i risultati con l'analista funzionale per verificare la correttezza delle logiche introdotte. Questo passaggio permette di intercettare eventuali incomprensioni prima che raggiungano la produzione.

@@ -1,11 +1,14 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import {createRequire} from 'module';
+const require = createRequire(import.meta.url);
+const {version} = require('./package.json');
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
+  title: 'Dev Bible',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
@@ -16,7 +19,7 @@ const config: Config = {
 
   // Set the production url of your site here
   url: 'https://cagianx.github.io',
-  baseUrl: '/bible/',
+  baseUrl: process.env.BASE_URL ?? '/bible/',
 
   organizationName: 'cagianx',
   projectName: 'bible',
@@ -75,7 +78,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'My Site',
+      title: 'Dev Bible',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -85,7 +88,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
         {
           href: 'https://github.com/cagianx/bible',
@@ -107,23 +110,6 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
           title: 'More',
           items: [
             {
@@ -133,7 +119,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} cagianx — v${version}`,
     },
     prism: {
       theme: prismThemes.github,

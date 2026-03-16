@@ -25,6 +25,43 @@ This is a **Docusaurus 3.9** documentation site with Mermaid diagram support.
 - `src/css/custom.css` — global CSS overrides and theme variables
 - `static/` — static assets served at root
 
+## Ambiente di sviluppo
+
+L'ambiente deve essere operativo con tre comandi dopo il clone:
+
+```bash
+git clone https://github.com/cagianx/bible.git
+cd bible
+pnpm install && pnpm start
+```
+
+- Se aggiungi un prerequisito, documentalo nel README e in `docs/regole/ambiente-di-sviluppo.md`.
+- Se aggiungi uno step di setup, automatizzalo oppure documentalo. Mai darlo per scontato.
+
+## Versioning
+
+Use **Semantic Versioning** (semver): `MAJOR.MINOR.PATCH`
+
+- `PATCH` — bug fixes, typo corrections, minor content updates
+- `MINOR` — new docs/sections/features, backwards-compatible additions
+- `MAJOR` — breaking changes (e.g. restructuring the site, removing sections)
+
+No pride versioning. Version bumps must reflect actual change scope.
+
+### Rules
+
+1. **The installed version must always be visible** — the version is shown in the site footer, read from `package.json`. Never remove or hide it.
+2. **Every release must be traceable to an exact git commit via tag** — each version in `package.json` must have a corresponding `vX.Y.Z` git tag. No release without a tag.
+
+### Release workflow
+
+1. Bump `version` in `package.json`
+2. Commit: `git commit -m "chore: release vX.Y.Z"`
+3. Tag: `git tag vX.Y.Z`
+4. Push: `git push && git push --tags`
+
+The version in `package.json` is the single source of truth — it is shown in the site footer at runtime, so any deployed build is unambiguously traceable to its git tag.
+
 ## Key constraints
 
 - `onBrokenLinks: 'throw'` — any internal link pointing to a non-existent page breaks the build. Always verify links after adding/removing docs.
