@@ -1,8 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pnpm build:*)",
-      "Bash(git init:*)"
+      "Bash(pnpm *)",
+      "Bash(git *)"
     ]
   }
 }
