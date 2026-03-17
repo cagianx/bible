@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.10](https://github.com/cagianx/bible/compare/v0.1.9...v0.1.10) (2026-03-17)
+
+
+### Bug Fixes
+
+* correct broken glossario link in gestione-errori ([7bfad9a](https://github.com/cagianx/bible/commit/7bfad9a36d1e2b25ba5615e377720ac40076a152))
+
 ## [0.1.9](https://github.com/cagianx/bible/compare/v0.1.8...v0.1.9) (2026-03-17)
 
 
