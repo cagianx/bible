@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.3](https://github.com/cagianx/bible/compare/v0.1.2...v0.1.3) (2026-03-17)
+
+
+### Documentation
+
+* expand analisi-tecnica with FAQ section ([f3d342a](https://github.com/cagianx/bible/commit/f3d342a7f30a5c58ff128d32e7ccea885a4286c7))
+* split analisi-tecnica into wizard with 8 steps ([62f19ea](https://github.com/cagianx/bible/commit/62f19ea3f71b7e9d41bec06014296409bacf6a14))
+
 ## [0.1.2](https://github.com/cagianx/bible/compare/v0.1.1...v0.1.2) (2026-03-17)
 
 
