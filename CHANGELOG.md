@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.9](https://github.com/cagianx/bible/compare/v0.1.8...v0.1.9) (2026-03-17)
+
+
+### Documentation
+
+* rewrite README in English and add maintenance rules to CLAUDE.md ([eb952c9](https://github.com/cagianx/bible/commit/eb952c97af231438aba6a5c58ba2f933c84fc9a4))
+
 ## [0.1.8](https://github.com/cagianx/bible/compare/v0.1.7...v0.1.8) (2026-03-17)
 
 
