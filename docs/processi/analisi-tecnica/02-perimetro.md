@@ -14,7 +14,7 @@ Ogni elemento coinvolto rientra in una di tre categorie:
 
 **Modifiche** — cambiamenti a comportamenti o componenti esistenti che non alterano le interfacce pubbliche. Chi dipende da questi componenti non se ne accorge. Richiedono comunque analisi delle regressioni potenziali.
 
-**Breaking changes** — modifiche che rompono la compatibilità con quanto già in uso: cambi di contratto API, rimozione di campi, variazioni nel comportamento atteso. Richiedono coordinamento immediato con i team dipendenti e una strategia di migrazione. Vanno portati all'attenzione di tutti il prima possibile — non sono necessariamente una cattiva notizia, ma nessuno deve esserne sorpreso. Il versioning renderà il cambiamento ufficiale con un bump `MAJOR`. Vedi [`regole/versionamento`](../../regole/versionamento.md).
+**[Breaking changes](../../glossario#breaking-change)** — modifiche che rompono la compatibilità con quanto già in uso: cambi di contratto API, rimozione di campi, variazioni nel comportamento atteso. Richiedono coordinamento immediato con i team dipendenti e una strategia di migrazione. Vanno portati all'attenzione di tutti il prima possibile — non sono necessariamente una cattiva notizia, ma nessuno deve esserne sorpreso. Il versioning renderà il cambiamento ufficiale con un bump `MAJOR`. Vedi [`regole/versionamento`](../../regole/versionamento.md).
 
 ## Identificare i sotto-moduli coinvolti
 
@@ -35,7 +35,7 @@ Per ogni modulo identificato, elencare le interfacce che cambiano:
 - job e processi schedulati
 - integrazioni con sistemi esterni
 
-Questo è il momento in cui si scopre se ci sono dipendenze nascoste o contratti impliciti mai documentati.
+Questo è il momento in cui si scopre se ci sono dipendenze nascoste o [contratti](../../glossario#contratto) impliciti mai documentati.
 
 ## Criterio di completamento
 

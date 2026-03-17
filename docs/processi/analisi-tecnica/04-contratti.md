@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Step 4 — Contratti
 
-I contratti definiscono come i moduli comunicano tra loro e con il mondo esterno. Un contratto è un accordo: una volta pubblicato, cambiarlo ha un costo. Progettarlo bene fin dall'inizio riduce breaking changes futuri.
+I [contratti](../../glossario#contratto) definiscono come i moduli comunicano tra loro e con il mondo esterno. Un contratto è un accordo: una volta pubblicato, cambiarlo ha un costo. Progettarlo bene fin dall'inizio riduce [breaking changes](../../glossario#breaking-change) futuri.
 
 ## Cosa definire per ogni interfaccia
 
@@ -19,11 +19,11 @@ Per ogni endpoint, evento o integrazione:
 | **Autenticazione** | schema richiesto (API key, JWT, cookie…) |
 | **Autorizzazione** | ruoli o policy necessari |
 | **Versionamento** | come si gestisce l'evoluzione del contratto |
-| **Idempotenza** | obbligatoria per operazioni critiche — stessa request, stesso risultato |
+| **[Idempotenza](../../glossario#idempotenza)** | obbligatoria per operazioni critiche — stessa request, stesso risultato |
 
 ## Idempotenza
 
-Le operazioni critiche — pagamenti, invio di ordini, operazioni che producono effetti collaterali — devono essere idempotenti. Il chiamante deve poter ripetere la stessa richiesta in caso di timeout o errore di rete senza produrre effetti duplicati.
+Le operazioni critiche — pagamenti, invio di ordini, operazioni che producono effetti collaterali — devono essere [idempotenti](../../glossario#idempotenza). Il chiamante deve poter ripetere la stessa richiesta in caso di timeout o errore di rete senza produrre effetti duplicati.
 
 L'idempotenza si garantisce tipicamente tramite una chiave idempotency fornita dal chiamante:
 
@@ -46,7 +46,7 @@ La scelta dipende dal contesto, ma la coerenza all'interno dello stesso sistema 
 
 ## Contratti interni vs esterni
 
-I contratti tra moduli interni allo stesso sistema hanno più flessibilità: possono evolvere con il sistema. I contratti esposti a sistemi esterni o a team separati sono impegni formali — vanno trattati con la stessa cura di un'API pubblica.
+I [contratti](../../glossario#contratto) tra moduli interni allo stesso sistema hanno più flessibilità: possono evolvere con il sistema. I contratti esposti a sistemi esterni o a team separati sono impegni formali — vanno trattati con la stessa cura di un'API pubblica.
 
 ## Criterio di completamento
 

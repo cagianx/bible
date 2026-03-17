@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Step 2 — Business Logic
 
-Con il dominio stabile, si implementa la business logic. Ogni caso d'uso identificato nell'analisi tecnica diventa una classe che implementa `IUseCase`, orchestrando i servizi di dominio e chiudendo la Unit of Work con `SaveChanges()`.
+Con il dominio stabile, si implementa la business logic. Ogni [caso d'uso](../../glossario#caso-duso) identificato nell'[analisi tecnica](../../glossario#analisi-tecnica) diventa una classe che implementa [`IUseCase`](../../glossario#iusecase), orchestrando i servizi di dominio e chiudendo la [Unit of Work](../../glossario#unit-of-work) con `SaveChanges()`.
 
 ## Codice testabile prima di tutto
 

@@ -10,7 +10,7 @@ Questo step non produce ancora scelte tecniche: produce chiarezza. Tutto ciò ch
 
 ## Cosa fare
 
-### Collegare ogni caso d'uso a un obiettivo di business
+### Collegare ogni [caso d'uso](../../glossario#caso-duso) a un obiettivo di business
 
 Ogni funzionalità deve avere una ragione esistenziale chiara. Se non si riesce a collegare un caso d'uso a un obiettivo concreto, è un segnale che non è ancora abbastanza compreso — o che non dovrebbe essere sviluppato.
 

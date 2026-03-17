@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # Step 6 — Requisiti Non Funzionali
 
-I requisiti non funzionali (NFR) sono i requisiti impliciti che nessuno scrive nell'analisi funzionale ma che, se ignorati, mandano in produzione un sistema che non funziona nel mondo reale. Vanno resi espliciti qui, con metriche verificabili.
+I requisiti non funzionali ([NFR](../../glossario#nfr)) sono i requisiti impliciti che nessuno scrive nell'[analisi funzionale](../../glossario#analisi-funzionale) ma che, se ignorati, mandano in produzione un sistema che non funziona nel mondo reale. Vanno resi espliciti qui, con metriche verificabili.
 
 ## Aree da coprire
 
@@ -30,7 +30,7 @@ I requisiti non funzionali (NFR) sono i requisiti impliciti che nessuno scrive n
 ### Resilienza
 
 - Retry: operazioni che possono essere ritentate automaticamente
-- Idempotenza: operazioni che devono dare lo stesso risultato se ripetute
+- [Idempotenza](../../glossario#idempotenza): operazioni che devono dare lo stesso risultato se ripetute
 - Fallback: cosa fa il sistema se una dipendenza non risponde
 - Degradazione controllata: il sistema può funzionare in modo ridotto?
 

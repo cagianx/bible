@@ -4,7 +4,7 @@ sidebar_position: 0
 
 # Analisi Tecnica
 
-L'analisi tecnica traduce l'analisi funzionale in una soluzione implementabile, testabile e manutenibile. Non decide solo *cosa* costruire, ma *come* costruirlo in modo chiaro per tutto il team.
+L'[analisi tecnica](../../glossario#analisi-tecnica) traduce l'[analisi funzionale](../../glossario#analisi-funzionale) in una soluzione implementabile, testabile e manutenibile. Non decide solo *cosa* costruire, ma *come* costruirlo in modo chiaro per tutto il team.
 
 ## Obiettivi
 

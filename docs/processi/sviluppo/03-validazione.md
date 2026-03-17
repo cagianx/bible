@@ -8,7 +8,7 @@ Il codice non è "fatto" quando i test passano in CI. È fatto quando è stato v
 
 ## Deploy in staging
 
-Con il trunk-based development non si aspetta la fine dello sprint per rilasciare. Appena un caso d'uso è completo e integrato su `main`, si stacca una versione e la si porta in staging. Vedi [`processi/pipeline`](../pipeline.md).
+Con il [trunk-based development](../../glossario#trunk-based-development) non si aspetta la fine dello sprint per rilasciare. Appena un caso d'uso è completo e integrato su `main`, si stacca una versione e la si porta in [staging](../../glossario#staging). Vedi [`processi/pipeline`](../pipeline.md).
 
 Il criterio è la completezza — non la perfezione. Un caso d'uso completo significa: dominio stabile, business logic testata, CI verde.
 
@@ -26,7 +26,7 @@ Il test end-to-end non è un test automatico — è una verifica umana sul compo
 
 **Ambiguità nell'analisi funzionale** — si torna all'analista funzionale per chiarire. Le assunzioni non dichiarate durante l'analisi tecnica si pagano qui.
 
-## Definition of Done
+## [Definition of Done](../../glossario#definition-of-done)
 
 Un caso d'uso è **done** quando:
 
@@ -34,4 +34,4 @@ Un caso d'uso è **done** quando:
 - [ ] business logic implementata con test di integrazione
 - [ ] CI verde su `main`
 - [ ] deploy in staging effettuato
-- [ ] validazione end-to-end approvata da chi ha prodotto l'analisi funzionale
+- [ ] validazione end-to-end approvata da chi ha prodotto l'[analisi funzionale](../../glossario#analisi-funzionale)

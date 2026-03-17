@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Step 5 — Flussi Critici
 
-I flussi traducono i casi d'uso in sequenze concrete: chi chiama chi, in quale ordine, con quali dati, cosa succede quando qualcosa va storto. Rendono visibile la complessità nascosta prima che diventi un problema in produzione.
+I flussi traducono i [casi d'uso](../../glossario#caso-duso) in sequenze concrete: chi chiama chi, in quale ordine, con quali dati, cosa succede quando qualcosa va storto. Rendono visibile la complessità nascosta prima che diventi un problema in produzione.
 
 ## Quanti flussi dettagliare
 
@@ -24,7 +24,7 @@ I flussi banali non richiedono diagrammi. Un flusso merita attenzione quando:
 
 **Chiamate esterne** — se il flusso dipende da servizi esterni, cosa succede se non rispondono. Si gestisce con retry, fallback o si propaga l'errore?
 
-**Gestione degli errori** — ogni punto di fallimento possibile e la risposta del sistema. Si usa il Result pattern per propagare gli errori in modo esplicito. Vedi [`regole/gestione-errori`](../../regole/gestione-errori.md).
+**Gestione degli errori** — ogni punto di fallimento possibile e la risposta del sistema. Si usa il [Result pattern](../../glossario#result-pattern) per propagare gli errori in modo esplicito. Vedi [`regole/gestione-errori`](../../regole/gestione-errori.md).
 
 **Compensazioni** — se un'operazione parzialmente completata deve essere annullata, come avviene? Chi ne è responsabile?
 

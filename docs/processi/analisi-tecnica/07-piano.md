@@ -12,8 +12,8 @@ Le stime si fanno separate per componente, non aggregate. La suddivisione natura
 
 | Componente | Contenuto |
 |---|---|
-| **Dominio e modellazione** | entity, migration, configurazioni EF |
-| **Business logic** | casi d'uso, servizi di dominio, test di integrazione inclusi |
+| **Dominio e modellazione** | entity, [migration](../../glossario#migration), configurazioni EF |
+| **Business logic** | [casi d'uso](../../glossario#caso-duso), servizi di dominio, test di integrazione inclusi |
 | **UI** | interfaccia utente |
 | **Sviluppi trasversali** | infrastruttura, configurazione, pipeline, integrazioni esterne |
 
@@ -30,7 +30,7 @@ Le dipendenze bloccanti vanno risolte o escalate prima che lo sprint inizi — n
 
 ## Spike
 
-Se esiste un'incertezza tecnica significativa — una libreria mai usata, un'integrazione non documentata, un comportamento del sistema non chiaro — si pianifica uno **spike**: un task a tempo fisso per esplorare e produrre una risposta, non un'implementazione. Uno spike ha una durata massima e un output atteso (documento, prototipo, decisione).
+Se esiste un'incertezza tecnica significativa — una libreria mai usata, un'integrazione non documentata, un comportamento del sistema non chiaro — si pianifica uno **[spike](../../glossario#spike)**: un task a tempo fisso per esplorare e produrre una risposta, non un'implementazione. Uno spike ha una durata massima e un output atteso (documento, prototipo, decisione).
 
 ## Rischi
 

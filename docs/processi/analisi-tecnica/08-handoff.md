@@ -15,7 +15,7 @@ Un'analisi tecnica completa produce:
 3. **Contratti delle interfacce** — API, eventi, integrazioni esterne e regole di versionamento
 4. **Flussi critici** — sequenze passo-passo dei percorsi core, incluse eccezioni ed error handling
 5. **Requisiti non funzionali** — performance, sicurezza, availability, audit, compliance
-6. **Piano e stime** — task separati per componente, dipendenze, rischi e spike
+6. **Piano e stime** — task separati per componente, dipendenze, rischi e [spike](../../glossario#spike)
 7. **Test strategy** — cosa testare, a quale livello, criteri di accettazione
 
 Non tutti gli output hanno lo stesso peso per ogni sviluppo: un task puramente di dominio non richiede una sezione contratti elaborata. Si produce ciò che è rilevante.
@@ -33,10 +33,10 @@ Se uno di questi punti non è soddisfatto, l'analisi non è completa.
 
 ## Checklist prima di iniziare lo sviluppo
 
-- [ ] Nessuna ambiguità aperta nell'analisi funzionale
+- [ ] Nessuna ambiguità aperta nell'[analisi funzionale](../../glossario#analisi-funzionale)
 - [ ] Perimetro definito — noto cosa è nuovo, cosa cambia, cosa potrebbe rompersi
 - [ ] Modello dati rivisto e approvato dalla figura preposta
-- [ ] Breaking changes comunicati ai team dipendenti
+- [ ] [Breaking changes](../../glossario#breaking-change) comunicati ai team dipendenti
 - [ ] Contratti definiti e condivisi con chi li consumerà
 - [ ] Piano con task e dipendenze esplicite
 - [ ] Test strategy chiara — si sa già cosa testare e come

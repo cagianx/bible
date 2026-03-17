@@ -12,9 +12,9 @@ Il dominio si tocca per primo. Le entity, le migration e i vincoli del database 
 
 Implementare le entity e le configurazioni EF emerse dalla modellazione in analisi tecnica. Seguire le regole descritte in [`regole/entity-framework`](../../regole/entity-framework.md) e [`regole/dominio`](../../regole/dominio.md):
 
-- nomi dall'Ubiquitous Language, senza abbreviazioni né traduzioni
+- nomi dall'[Ubiquitous Language](../../glossario#ubiquitous-language), senza abbreviazioni né traduzioni
 - constraint e chiavi esterne dichiarati nel modello, non gestiti applicativamente
-- migration con nome descrittivo che racconta la decisione di dominio
+- [migration](../../glossario#migration) con nome descrittivo che racconta la decisione di dominio
 - nessuna rinomina, nessuna rimozione — solo aggiunte e deprecazioni
 
 ### 2. Scrivere il primo test di integrazione
@@ -52,7 +52,7 @@ Le modifiche al dominio non devono rompere i test preesistenti. La CI lo verific
 Il dominio è stabile quando:
 - le migration sono applicate e i test di dominio passano
 - nessun test preesistente è rotto
-- le breaking changes, se presenti, sono state comunicate
+- le [breaking changes](../../glossario#breaking-change), se presenti, sono state comunicate
 
 Da questo momento business logic e UI possono procedere in parallelo.
 
