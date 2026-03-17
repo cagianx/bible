@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.7](https://github.com/cagianx/bible/compare/v0.1.6...v0.1.7) (2026-03-17)
+
+
+### Documentation
+
+* add mermaid diagrams to architecture, pipeline, analysis and error handling ([249b0cf](https://github.com/cagianx/bible/commit/249b0cfd4f7114bfd8cbbf8f7681b63b5ca62400))
+
 ## [0.1.6](https://github.com/cagianx/bible/compare/v0.1.5...v0.1.6) (2026-03-17)
 
 
