@@ -10,7 +10,7 @@ const {version} = require('./package.json');
 const config: Config = {
   title: 'Dev Bible',
   tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {

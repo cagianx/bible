@@ -4,8 +4,12 @@
  * work well for content-centric websites.
  */
 
+@import '@fontsource/cascadia-code/400.css';
+@import '@fontsource/cascadia-code/700.css';
+
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-font-family-monospace: 'Cascadia Code', monospace;
   --ifm-color-primary: #2e8555;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
