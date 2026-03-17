@@ -214,7 +214,7 @@ public class GestoreScorte
 }
 
 // Caso d'uso: orchestra e persiste
-public class ConfermaOrdine : ICasoD'Uso<ConfermaOrdineCommand>
+public class ConfermaOrdine : IUseCase<ConfermaOrdineCommand>
 {
     private readonly AppDbContext _db;
     private readonly GestoreScorte _scorte;
@@ -238,18 +238,18 @@ Le classi che implementano un caso d'uso si riconoscono formalmente implementand
 
 ```csharp
 // Interfaccia marker per casi d'uso
-public interface ICasoD'Uso<TCommand>
+public interface IUseCase<TCommand>
 {
     Task<Result> ExecuteAsync(TCommand command);
 }
 
-public interface ICasoD'Uso<TCommand, TResult>
+public interface IUseCase<TCommand, TResult>
 {
     Task<Result<TResult>> ExecuteAsync(TCommand command);
 }
 ```
 
-Tutto ciò che implementa `ICasoD'Uso` è un caso d'uso. Tutto il resto è un servizio che partecipa alla Unit of Work.
+Tutto ciò che implementa `IUseCase` è un caso d'uso. Tutto il resto è un servizio che partecipa alla Unit of Work.
 
 ## IA e generazione di codice
 
