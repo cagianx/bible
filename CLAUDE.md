@@ -72,6 +72,10 @@ Il **glossario** (`docs/glossario.md`) va tenuto aggiornato ad ogni modifica che
 
 Il **README.md** e la **homepage del sito** (`src/pages/index.tsx`) vanno tenuti aggiornati quando cambia la struttura o il contenuto della documentazione in modo significativo.
 
+## Indice analitico
+
+Il file `docs/indice-analitico.md` è un indice alfabetico di tutti i concetti trattati nella documentazione, con link alle pagine dove sono approfonditi. **Usalo come punto di partenza per cercare contenuti nel sito** prima di esplorare i file manualmente. Va tenuto aggiornato ogni volta che si aggiunge, rimuove o sposta un concetto nella documentazione.
+
 ## Key constraints
 
 - `onBrokenLinks: 'throw'` — any internal link pointing to a non-existent page breaks the build. Always verify links after adding/removing docs.
