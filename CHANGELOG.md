@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.12](https://github.com/cagianx/bible/compare/v0.1.11...v0.1.12) (2026-04-11)
+
+
+### Documentation
+
+* sezione c# completa (configurazione, code, middleware, filter, problem details) ([64c4828](https://github.com/cagianx/bible/commit/64c48280a08ec7072aec4f879840a19a4f56590d))
+
 ## [0.1.11](https://github.com/cagianx/bible/compare/v0.1.10...v0.1.11) (2026-04-11)
 
 
