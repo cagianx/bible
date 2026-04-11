@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.11](https://github.com/cagianx/bible/compare/v0.1.10...v0.1.11) (2026-04-11)
+
+
+### Features
+
+* add SEO support and clean up template residuals ([6c786ef](https://github.com/cagianx/bible/commit/6c786efddd175886ad71808f558c2c4bd0a0fa45))
+
+
+### Documentation
+
+* add analytical index and reference it in CLAUDE.md ([b3261fa](https://github.com/cagianx/bible/commit/b3261faad8bb60e1e136f121d231dfb640ceba4d))
+* add modeling principles and practical tips across documentation ([8ff8eba](https://github.com/cagianx/bible/commit/8ff8ebafef207e23d8022ed558e7241d64052b40))
+* align glossario soft delete entry and auto-update rule in CLAUDE.md ([7c5c578](https://github.com/cagianx/bible/commit/7c5c5786c9aed04340c70ddccb76c2525fa399aa))
+
 ## [0.1.10](https://github.com/cagianx/bible/compare/v0.1.9...v0.1.10) (2026-03-17)
 
 
