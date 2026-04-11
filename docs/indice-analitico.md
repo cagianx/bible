@@ -8,6 +8,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 
 ## A
 
+- **Action filter** — [csharp/11-action-filter](tecnologie/csharp/11-action-filter.md)
 - **ACID** — [glossario](glossario#acid)
 - **Ambienti (local, staging, produzione)** — [regole/ambienti](regole/ambienti.md)
 - **Analisi funzionale** — [analisi-tecnica/01](processi/analisi-tecnica/01-analisi-funzionale.md) · [glossario](glossario#analisi-funzionale)
@@ -17,10 +18,12 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Audit** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md) · [analisi-tecnica/06](processi/analisi-tecnica/06-nfr.md)
 - **Autenticazione** — [regole/autenticazione](regole/autenticazione.md)
 - **Autorizzazione** — [regole/autenticazione](regole/autenticazione.md) · [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md)
+- **Authorization filter** — [csharp/12-authorization-filter](tecnologie/csharp/12-authorization-filter.md) · [glossario](glossario#authorization-filter)
 - **Auto-documentazione (modello)** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 
 ## B
 
+- **Backpressure** — [csharp/08-code-native](tecnologie/csharp/08-code-native.md) · [glossario](glossario#backpressure)
 - **Bearer Token** — [regole/autenticazione](regole/autenticazione.md)
 - **Branch (strategia)** — [regole/git](regole/git.md)
 - **Breaking change** — [glossario](glossario#breaking-change) · [analisi-tecnica/02](processi/analisi-tecnica/02-perimetro.md) · [regole/dominio](regole/dominio.md)
@@ -29,7 +32,9 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 ## C
 
 - **Caso d'uso** — [glossario](glossario#caso-duso) · [analisi-tecnica/01](processi/analisi-tecnica/01-analisi-funzionale.md)
+- **Channel\<T\>** — [csharp/08-code-native](tecnologie/csharp/08-code-native.md)
 - **CI/CD** — [processi/pipeline](processi/pipeline.md) · [regole/testing](regole/testing.md)
+- **ConcurrentQueue\<T\>** — [csharp/08-code-native](tecnologie/csharp/08-code-native.md)
 - **Clustered index** — [glossario](glossario#clustered-index) · [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **Code First** — [glossario](glossario#code-first) · [regole/entity-framework](regole/entity-framework.md)
 - **Codice difensivo (da evitare)** — [regole/dominio](regole/dominio.md) · [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md) · [regole/gestione-errori](regole/gestione-errori.md)
@@ -63,6 +68,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Eccezioni** — [regole/gestione-errori](regole/gestione-errori.md) · [regole/logging](regole/logging.md)
 - **Eccezioni (decorazione con contesto)** — [regole/logging](regole/logging.md)
 - **Entity Framework** — [regole/entity-framework](regole/entity-framework.md)
+- **Exception filter** — [csharp/13-exception-filter](tecnologie/csharp/13-exception-filter.md) · [glossario](glossario#exception-filter)
 - **Enum (vs stringa libera)** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **Environment variables** — [regole/configurazione](regole/configurazione.md) · [regole/autenticazione](regole/autenticazione.md)
 
@@ -79,6 +85,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 
 ## H
 
+- **Hangfire** — [csharp/09-librerie-code](tecnologie/csharp/09-librerie-code.md)
 - **Handoff** — [analisi-tecnica/08](processi/analisi-tecnica/08-handoff.md)
 
 ## I
@@ -89,6 +96,8 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Indici (database)** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **Indici univoci (idempotenza)** — [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md)
 - **Interface Segregation** — [regole/principi](regole/principi.md)
+- **IOptions\<T\>** — [csharp/07-configuration](tecnologie/csharp/07-configuration.md) · [glossario](glossario#ioptionst)
+- **IOptionsMonitor\<T\>** — [csharp/07-configuration](tecnologie/csharp/07-configuration.md)
 - **IUseCase** — [glossario](glossario#iusecase) · [sviluppo/02](processi/sviluppo/02-business-logic.md)
 
 ## J
@@ -105,6 +114,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 ## M
 
 - **Mermaid** — [regole/documentazione](regole/documentazione.md) · [analisi-tecnica/05](processi/analisi-tecnica/05-flussi.md)
+- **Middleware** — [csharp/10-middleware](tecnologie/csharp/10-middleware.md) · [glossario](glossario#middleware)
 - **Migration** — [glossario](glossario#migration) · [regole/entity-framework](regole/entity-framework.md) · [sviluppo/01](processi/sviluppo/01-dominio.md)
 - **Modellazione dati** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 
@@ -124,7 +134,13 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Pipeline** — [processi/pipeline](processi/pipeline.md)
 - **PostgreSQL** — [regole/entity-framework](regole/entity-framework.md)
 - **Principi (Unix, SOLID)** — [regole/principi](regole/principi.md)
+- **Problem Details** — [csharp/14-problem-details](tecnologie/csharp/14-problem-details.md) · [glossario](glossario#problem-details)
 - **Pull Request** — [regole/git](regole/git.md)
+
+## Q
+
+- **Quartz.NET** — [csharp/09-librerie-code](tecnologie/csharp/09-librerie-code.md)
+- **Queue\<T\>** — [csharp/08-code-native](tecnologie/csharp/08-code-native.md)
 
 ## R
 
