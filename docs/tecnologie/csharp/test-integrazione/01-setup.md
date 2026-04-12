@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-description: Test di integrazione in .NET con NUnit, database PostgreSQL usa e getta, classe base e FluentAssertions.
+description: Test di integrazione in .NET con NUnit, database PostgreSQL usa e getta, clone da template e FluentAssertions.
 ---
 
 # Setup — database usa e getta
@@ -11,22 +11,28 @@ I test unitari verificano la logica isolata; i test di integrazione verificano c
 
 Il database usato nei test è **PostgreSQL**, lo stesso motore di produzione. SQLite in-memory è più veloce ma non si comporta come PostgreSQL su tipi, constraint, case sensitivity e molte funzioni SQL.
 
-## Pattern: classe base con database usa e getta
+## Pattern: clone da template, drop dopo ogni test
 
-Ogni suite di test (`[TestFixture]`) riceve un database PostgreSQL dedicato, creato all'inizio e distrutto alla fine. I dati vengono puliti tra un test e l'altro, ma il database non viene ricreato ogni volta — le migration girano una volta sola per fixture.
+Ogni test riceve un database dedicato clonato istantaneamente da un template, e lo distrugge al termine. Il template viene creato una volta sola per sessione di test (o riutilizzato se già esiste) applicando le migration su un DB vuoto.
 
 ```
-[OneTimeSetUp]   → crea il database, applica le migration
-[SetUp]          → pulisce i dati tra un test e l'altro
-test A           → chiama la logica, verifica il risultato
-test B           → chiama la logica, verifica il risultato
-[OneTimeTearDown]→ elimina il database
+[OneTimeSetUp]  → crea il template se non esiste (migration applicate una volta)
+[SetUp]         → clona il template → DB del test, crea il DbContext
+test A          → chiama la logica, verifica il risultato
+[TearDown]      → droppa il DB del test
+test B          → clona il template → nuovo DB, ...
+[TearDown]      → droppa il DB del test
 ```
+
+Il clone di un database in PostgreSQL (`CREATE DATABASE ... TEMPLATE ...`) è un'operazione istantanea: copia i metadati del template senza copiare fisicamente i file. I dati del template (un DB vuoto con le migration applicate) vengono ereditati dal clone, che poi è completamente indipendente.
+
+### Invalidazione della cache tramite nome migration
+
+Il template viene nominato con il nome dell'ultima migration applicata: `testdb_template_{NomeUltimaMigration}`. Se le migration cambiano, il nome cambia, il vecchio template non viene trovato e ne viene creato uno nuovo. I vecchi template si possono rimuovere manualmente o con uno script di cleanup.
 
 ## Classe base
 
 ```csharp
-using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using Npgsql;
@@ -34,84 +40,96 @@ using Npgsql;
 [TestFixture]
 public abstract class IntegrationTestBase
 {
-    private string _dbName = null!;
-    private string _connectionString = null!;
+    private static string? _templateDbName;
+    private string _testDbName = null!;
 
     protected AppDbContext Db { get; private set; } = null!;
 
-    // Sovrascrivere per aggiungere seed data specifico della suite
-    protected virtual async Task SeedAsync(AppDbContext db) => await Task.CompletedTask;
+    // Sovrascrivere per aggiungere seed data prima di ogni test
+    protected virtual Task SeedAsync(AppDbContext db) => Task.CompletedTask;
+
+    private static string MasterCs =>
+        Environment.GetEnvironmentVariable("TEST_DB_CONNECTION")
+        ?? "Host=localhost;Username=postgres;Password=secret";
 
     [OneTimeSetUp]
-    public async Task CreateDatabase()
+    public async Task PrepareTemplate()
     {
-        _dbName = $"test_{Guid.NewGuid():N}";
-        var masterCs = TestConfiguration.MasterConnectionString; // es. "Host=localhost;Username=postgres;Password=secret"
-        _connectionString = $"{masterCs};Database={_dbName}";
+        if (_templateDbName is not null)
+            return; // già preparato da un'altra fixture nella stessa sessione
 
-        // Crea il database
-        await using var conn = new NpgsqlConnection($"{masterCs};Database=postgres");
-        await conn.OpenAsync();
-        await using var cmd = conn.CreateCommand();
-        cmd.CommandText = $"CREATE DATABASE \"{_dbName}\"";
-        await cmd.ExecuteNonQueryAsync();
-
-        // Applica le migration
-        var options = new DbContextOptionsBuilder<AppDbContext>()
-            .UseNpgsql(_connectionString)
+        // Ricava il nome dell'ultima migration dall'assembly (non richiede connessione)
+        var dummyOptions = new DbContextOptionsBuilder<AppDbContext>()
+            .UseNpgsql($"{MasterCs};Database=postgres")
             .Options;
-        Db = new AppDbContext(options);
-        await Db.Database.MigrateAsync();
+        await using var dummyCtx = new AppDbContext(dummyOptions);
+        var lastMigration = dummyCtx.Database.GetMigrations().Last();
+        _templateDbName = $"testdb_template_{lastMigration.ToLowerInvariant()}";
 
-        await SeedAsync(Db);
+        // Controlla se il template esiste già (cache valida)
+        await using var conn = new NpgsqlConnection($"{MasterCs};Database=postgres");
+        await conn.OpenAsync();
+
+        await using var checkCmd = conn.CreateCommand();
+        checkCmd.CommandText = "SELECT 1 FROM pg_database WHERE datname = $1";
+        checkCmd.Parameters.AddWithValue(_templateDbName);
+        var exists = await checkCmd.ExecuteScalarAsync() is not null;
+        if (exists)
+            return;
+
+        // Crea il template e applica le migration
+        await using var createCmd = conn.CreateCommand();
+        createCmd.CommandText = $"CREATE DATABASE \"{_templateDbName}\"";
+        await createCmd.ExecuteNonQueryAsync();
+
+        var templateOptions = new DbContextOptionsBuilder<AppDbContext>()
+            .UseNpgsql($"{MasterCs};Database={_templateDbName}")
+            .Options;
+        await using var templateCtx = new AppDbContext(templateOptions);
+        await templateCtx.Database.MigrateAsync();
+
+        // Svuota il connection pool: CREATE DATABASE ... TEMPLATE richiede
+        // che il template non abbia connessioni attive
+        await NpgsqlConnection.ClearAllPoolsAsync();
     }
 
     [SetUp]
-    public async Task ResetData()
+    public async Task CreateTestDatabase()
     {
-        // Elimina i dati rispettando l'ordine dei vincoli di FK
-        // L'ordine dipende dal modello — le tabelle figlie si svuotano prima delle parent
-        await Db.Database.ExecuteSqlRawAsync("""
-            DELETE FROM righe_ordine;
-            DELETE FROM ordini;
-            DELETE FROM prodotti;
-            DELETE FROM clienti;
-            """);
+        _testDbName = $"testdb_{Guid.NewGuid():N}";
+
+        await using var conn = new NpgsqlConnection($"{MasterCs};Database=postgres");
+        await conn.OpenAsync();
+
+        // Clone istantaneo del template
+        await using var cmd = conn.CreateCommand();
+        cmd.CommandText = $"CREATE DATABASE \"{_testDbName}\" TEMPLATE \"{_templateDbName}\"";
+        await cmd.ExecuteNonQueryAsync();
+
+        var options = new DbContextOptionsBuilder<AppDbContext>()
+            .UseNpgsql($"{MasterCs};Database={_testDbName}")
+            .Options;
+        Db = new AppDbContext(options);
 
         await SeedAsync(Db);
     }
 
-    [OneTimeTearDown]
-    public async Task DropDatabase()
+    [TearDown]
+    public async Task DropTestDatabase()
     {
         await Db.DisposeAsync();
+        await NpgsqlConnection.ClearAllPoolsAsync();
 
-        var masterCs = TestConfiguration.MasterConnectionString;
-        await using var conn = new NpgsqlConnection($"{masterCs};Database=postgres");
+        await using var conn = new NpgsqlConnection($"{MasterCs};Database=postgres");
         await conn.OpenAsync();
         await using var cmd = conn.CreateCommand();
-        // Forza la disconnessione di eventuali connessioni aperte prima di droppare
-        cmd.CommandText = $"""
-            SELECT pg_terminate_backend(pid)
-            FROM pg_stat_activity
-            WHERE datname = '{_dbName}' AND pid <> pg_backend_pid();
-            DROP DATABASE "{_dbName}";
-            """;
+        cmd.CommandText = $"DROP DATABASE IF EXISTS \"{_testDbName}\" WITH (FORCE)";
         await cmd.ExecuteNonQueryAsync();
     }
 }
 ```
 
-La connection string del master si legge da una configurazione dedicata ai test (variabile d'ambiente o `appsettings.Test.json`, non commissionata):
-
-```csharp
-public static class TestConfiguration
-{
-    public static string MasterConnectionString =>
-        Environment.GetEnvironmentVariable("TEST_DB_CONNECTION")
-        ?? "Host=localhost;Username=postgres;Password=secret";
-}
-```
+`DROP DATABASE ... WITH (FORCE)` (PostgreSQL 13+) termina le connessioni attive prima di droppare, rendendo superflua la query `pg_terminate_backend`.
 
 ## Esempio di test
 
@@ -186,11 +204,11 @@ risposta.Should().BeEquivalentTo(atteso, options => options.Excluding(x => x.Id)
 
 ## NUnit e parallelismo
 
-I test di integrazione non devono girare in parallelo sulla stessa suite: condividerebbero il database e interferirebbero l'uno con l'altro. Il default di NUnit è esecuzione sequenziale all'interno della stessa fixture, che è il comportamento corretto.
+I test all'interno della stessa fixture girano in sequenza — è il default di NUnit ed è quello che si vuole, perché condividerebbero `SeedAsync`.
 
-Fixture diverse (classi diverse che estendono `IntegrationTestBase`) possono girare in parallelo perché ciascuna ha il proprio database dedicato.
+Fixture diverse possono girare in parallelo: ciascuna ha il proprio database dedicato e clona lo stesso template in modo indipendente.
 
 ```csharp
-// Per abilitare il parallelismo tra fixture (ogni fixture ha il suo DB)
+// Per abilitare il parallelismo tra fixture
 [assembly: Parallelizable(ParallelScope.Fixtures)]
 ```
