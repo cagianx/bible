@@ -135,6 +135,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **PostgreSQL** — [regole/entity-framework](regole/entity-framework.md)
 - **Principi (Unix, SOLID)** — [regole/principi](regole/principi.md)
 - **Problem Details** — [csharp/14-problem-details](tecnologie/csharp/14-problem-details.md) · [glossario](glossario#problem-details)
+- **Pride versioning** — [regole/versionamento](regole/versionamento.md) · [glossario](glossario#pride-versioning)
 - **Pull Request** — [regole/git](regole/git.md)
 
 ## Q
@@ -185,4 +186,5 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 
 - **Validazione (staging)** — [sviluppo/03](processi/sviluppo/03-validazione.md)
 - **Versionamento** — [regole/versionamento](regole/versionamento.md) · [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md)
+- **Versionamento (CalVer)** — [regole/versionamento](regole/versionamento.md)
 - **Versionamento contratti** — [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md)
