@@ -7,7 +7,7 @@ description: Logging in ASP.NET Core con ILogger, Serilog e i sink più comuni.
 
 Il logging in ASP.NET Core si basa sull'astrazione `Microsoft.Extensions.Logging`. Serilog è il backend raccomandato: ricco di sink, configurabile da `appsettings.json`, e supporta log strutturati nativamente.
 
-Vedi anche: [regole/logging](../../regole/logging.md).
+Vedi anche: [regole/logging](../../../regole/logging.md).
 
 ## Dipendenze
 

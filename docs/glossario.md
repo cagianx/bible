@@ -7,7 +7,7 @@ description: Definizioni dei termini tecnici e di dominio usati nella documentaz
 
 ## Async / Await
 
-Modello di programmazione asincrona in C# basato su `Task<T>` e le keyword `async`/`await`. Permette di liberare il thread durante operazioni I/O-bound (database, HTTP, file system), aumentando il throughput delle Web API senza aumentare il numero di thread. Vedi [`tecnologie/csharp/15-async`](tecnologie/csharp/15-async.md).
+Modello di programmazione asincrona in C# basato su `Task<T>` e le keyword `async`/`await`. Permette di liberare il thread durante operazioni I/O-bound (database, HTTP, file system), aumentando il throughput delle Web API senza aumentare il numero di thread. Vedi [`tecnologie/csharp/linguaggio/15-async`](tecnologie/csharp/linguaggio/15-async.md).
 
 ## ACID
 
@@ -23,11 +23,11 @@ Processo che traduce l'analisi funzionale in una soluzione implementabile: model
 
 ## Background service
 
-Componente che gira in background per tutta la vita dell'applicazione, in parallelo con la gestione delle richieste HTTP. Si implementa estendendo `BackgroundService` e registrandolo con `AddHostedService`. Vedi [`tecnologie/csharp/19-background-services`](tecnologie/csharp/19-background-services.md).
+Componente che gira in background per tutta la vita dell'applicazione, in parallelo con la gestione delle richieste HTTP. Si implementa estendendo `BackgroundService` e registrandolo con `AddHostedService`. Vedi [`tecnologie/csharp/concorrenza/19-background-services`](tecnologie/csharp/concorrenza/19-background-services.md).
 
 ## Backpressure
 
-Meccanismo con cui un consumatore segnala al produttore di rallentare perché non riesce a elaborare i messaggi abbastanza velocemente. In .NET si realizza con `Channel<T>` limitato (`BoundedChannelFullMode.Wait`). Vedi [`tecnologie/csharp/08-code-native`](tecnologie/csharp/08-code-native.md).
+Meccanismo con cui un consumatore segnala al produttore di rallentare perché non riesce a elaborare i messaggi abbastanza velocemente. In .NET si realizza con `Channel<T>` limitato (`BoundedChannelFullMode.Wait`). Vedi [`tecnologie/csharp/concorrenza/08-code-native`](tecnologie/csharp/concorrenza/08-code-native.md).
 
 ## Breaking change
 
@@ -35,15 +35,15 @@ Modifica che rompe la compatibilità con quanto già in uso: rinomina di colonne
 
 ## Caching
 
-Tecnica per memorizzare temporaneamente il risultato di operazioni costose (query DB, chiamate HTTP) e riutilizzarlo nelle richieste successive. In ASP.NET Core: `IMemoryCache` per cache in-process, `IDistributedCache` per cache condivisa tra istanze (Redis), output caching per risposte HTTP complete. Vedi [`tecnologie/csharp/20-caching`](tecnologie/csharp/20-caching.md).
+Tecnica per memorizzare temporaneamente il risultato di operazioni costose (query DB, chiamate HTTP) e riutilizzarlo nelle richieste successive. In ASP.NET Core: `IMemoryCache` per cache in-process, `IDistributedCache` per cache condivisa tra istanze (Redis), output caching per risposte HTTP complete. Vedi [`tecnologie/csharp/integrazione/20-caching`](tecnologie/csharp/integrazione/20-caching.md).
 
 ## Captive dependency
 
-Bug di configurazione DI in cui un servizio con lifetime più lungo (es. singleton) cattura una dipendenza con lifetime più breve (es. scoped). La dipendenza viene tenuta viva oltre il suo ciclo di vita previsto. Vedi [`tecnologie/csharp/16-dependency-injection`](tecnologie/csharp/16-dependency-injection.md).
+Bug di configurazione DI in cui un servizio con lifetime più lungo (es. singleton) cattura una dipendenza con lifetime più breve (es. scoped). La dipendenza viene tenuta viva oltre il suo ciclo di vita previsto. Vedi [`tecnologie/csharp/fondamentali/16-dependency-injection`](tecnologie/csharp/fondamentali/16-dependency-injection.md).
 
 ## Circuit breaker
 
-Pattern di resilienza che interrompe temporaneamente le chiamate a un servizio esterno dopo un numero sufficiente di errori consecutivi, evitando di sovraccaricare un sistema già in difficoltà. Il circuito torna operativo dopo un timeout. Vedi [`tecnologie/csharp/21-resilienza`](tecnologie/csharp/21-resilience.md).
+Pattern di resilienza che interrompe temporaneamente le chiamate a un servizio esterno dopo un numero sufficiente di errori consecutivi, evitando di sovraccaricare un sistema già in difficoltà. Il circuito torna operativo dopo un timeout. Vedi [`tecnologie/csharp/integrazione/21-resilienza`](tecnologie/csharp/integrazione/21-resilience.md).
 
 ## Caso d'uso
 
@@ -79,7 +79,7 @@ Criteri che un caso d'uso deve soddisfare per essere considerato completato: dom
 
 ## Dependency Injection (DI)
 
-Pattern per cui le dipendenze di una classe vengono fornite dall'esterno anziché create internamente. In ASP.NET Core il container DI integrato risolve le dipendenze automaticamente. I servizi si registrano con tre lifetimes: singleton, scoped, transient. Vedi [`tecnologie/csharp/16-dependency-injection`](tecnologie/csharp/16-dependency-injection.md).
+Pattern per cui le dipendenze di una classe vengono fornite dall'esterno anziché create internamente. In ASP.NET Core il container DI integrato risolve le dipendenze automaticamente. I servizi si registrano con tre lifetimes: singleton, scoped, transient. Vedi [`tecnologie/csharp/fondamentali/16-dependency-injection`](tecnologie/csharp/fondamentali/16-dependency-injection.md).
 
 ## DTO
 
@@ -87,15 +87,15 @@ Pattern per cui le dipendenze di una classe vengono fornite dall'esterno anzich�
 
 ## Authorization filter
 
-Filter MVC eseguito prima di ogni action per verificare se la request è autorizzata. Implementa `IAuthorizationFilter` o `IAsyncAuthorizationFilter`. Adatto a logica di autorizzazione custom che non si esprime con le policy dichiarative standard. Vedi [`tecnologie/csharp/12-authorization-filter`](tecnologie/csharp/12-authorization-filter.md).
+Filter MVC eseguito prima di ogni action per verificare se la request è autorizzata. Implementa `IAuthorizationFilter` o `IAsyncAuthorizationFilter`. Adatto a logica di autorizzazione custom che non si esprime con le policy dichiarative standard. Vedi [`tecnologie/csharp/pipeline/12-authorization-filter`](tecnologie/csharp/pipeline/12-authorization-filter.md).
 
 ## Exception filter
 
-Filter MVC che intercetta le eccezioni non gestite lanciate da action e filter. Consente di centralizzare la gestione degli errori a livello di controller con accesso al contesto MVC. Vedi [`tecnologie/csharp/13-exception-filter`](tecnologie/csharp/13-exception-filter.md).
+Filter MVC che intercetta le eccezioni non gestite lanciate da action e filter. Consente di centralizzare la gestione degli errori a livello di controller con accesso al contesto MVC. Vedi [`tecnologie/csharp/pipeline/13-exception-filter`](tecnologie/csharp/pipeline/13-exception-filter.md).
 
 ## FluentValidation
 
-Libreria per la validazione dell'input con un'API fluente. I validator sono classi separate (`AbstractValidator<T>`) testabili in isolamento. Preferita a DataAnnotations per regole condizionali, messaggi personalizzati o validazioni tra campi. Vedi [`tecnologie/csharp/18-validation`](tecnologie/csharp/18-validation.md).
+Libreria per la validazione dell'input con un'API fluente. I validator sono classi separate (`AbstractValidator<T>`) testabili in isolamento. Preferita a DataAnnotations per regole condizionali, messaggi personalizzati o validazioni tra campi. Vedi [`tecnologie/csharp/pipeline/18-validation`](tecnologie/csharp/pipeline/18-validation.md).
 
 ## Feature flag
 
@@ -107,7 +107,7 @@ Metodo di configurazione EF tramite classi `IEntityTypeConfiguration<T>`. Prefer
 
 ## IHttpClientFactory
 
-Interfaccia ASP.NET Core per creare istanze `HttpClient` con gestione corretta del ciclo di vita degli handler HTTP. Evita socket exhaustion e DNS stale. Si usa tramite typed client o named client. Vedi [`tecnologie/csharp/17-httpclient`](tecnologie/csharp/17-httpclient.md).
+Interfaccia ASP.NET Core per creare istanze `HttpClient` con gestione corretta del ciclo di vita degli handler HTTP. Evita socket exhaustion e DNS stale. Si usa tramite typed client o named client. Vedi [`tecnologie/csharp/integrazione/17-httpclient`](tecnologie/csharp/integrazione/17-httpclient.md).
 
 ## Idempotenza
 
@@ -115,7 +115,7 @@ Proprietà di un'operazione che produce lo stesso risultato indipendentemente da
 
 ## IOptions\<T\>
 
-Interfaccia ASP.NET Core per accedere alla configurazione tipizzata. Legge il valore una sola volta all'avvio. `IOptionsMonitor<T>` aggiorna il valore automaticamente se `appsettings.json` cambia. `IOptionsSnapshot<T>` ricalcola il valore per ogni request. Vedi [`tecnologie/csharp/07-configuration`](tecnologie/csharp/07-configuration.md).
+Interfaccia ASP.NET Core per accedere alla configurazione tipizzata. Legge il valore una sola volta all'avvio. `IOptionsMonitor<T>` aggiorna il valore automaticamente se `appsettings.json` cambia. `IOptionsSnapshot<T>` ricalcola il valore per ogni request. Vedi [`tecnologie/csharp/fondamentali/07-configuration`](tecnologie/csharp/fondamentali/07-configuration.md).
 
 ## IUseCase
 
@@ -123,7 +123,7 @@ Interfaccia marker che identifica formalmente le classi che implementano un caso
 
 ## Middleware
 
-Componente della pipeline HTTP di ASP.NET Core che elabora ogni request e response. Si compone in catena: ogni middleware può trasformare la request, passarla al successivo e poi trasformare la response al ritorno. Vedi [`tecnologie/csharp/10-middleware`](tecnologie/csharp/10-middleware.md).
+Componente della pipeline HTTP di ASP.NET Core che elabora ogni request e response. Si compone in catena: ogni middleware può trasformare la request, passarla al successivo e poi trasformare la response al ritorno. Vedi [`tecnologie/csharp/pipeline/10-middleware`](tecnologie/csharp/pipeline/10-middleware.md).
 
 ## Migration
 
@@ -135,11 +135,11 @@ File generato da EF che descrive una modifica incrementale allo schema del datab
 
 ## Record (C#)
 
-Tipo reference con semantica di valore: l'uguaglianza è basata sul contenuto delle proprietà, non sull'identità in memoria. Le proprietà sono `init`-only per default (immutabili dopo la costruzione). Si copia con modifiche tramite `with`. Ideale per DTO, value object e response model. Vedi [`tecnologie/csharp/22-records`](tecnologie/csharp/22-records.md).
+Tipo reference con semantica di valore: l'uguaglianza è basata sul contenuto delle proprietà, non sull'identità in memoria. Le proprietà sono `init`-only per default (immutabili dopo la costruzione). Si copia con modifiche tramite `with`. Ideale per DTO, value object e response model. Vedi [`tecnologie/csharp/linguaggio/22-records`](tecnologie/csharp/linguaggio/22-records.md).
 
 ## Resilienza (HTTP)
 
-Capacità di gestire errori transitori nelle chiamate a servizi esterni tramite retry, circuit breaker e timeout. In ASP.NET Core si configura con `Microsoft.Extensions.Http.Resilience` (built on Polly). Vedi [`tecnologie/csharp/21-resilience`](tecnologie/csharp/21-resilience.md).
+Capacità di gestire errori transitori nelle chiamate a servizi esterni tramite retry, circuit breaker e timeout. In ASP.NET Core si configura con `Microsoft.Extensions.Http.Resilience` (built on Polly). Vedi [`tecnologie/csharp/integrazione/21-resilience`](tecnologie/csharp/integrazione/21-resilience.md).
 
 ## Result pattern
 
@@ -147,7 +147,7 @@ Pattern che incapsula l'esito di un'operazione in un oggetto `Result<T>`, distin
 
 ## Problem Details
 
-Standard RFC 9457 per il formato strutturato di risposte di errore HTTP. Usa il media type `application/problem+json` con campi fissi (`type`, `title`, `status`, `detail`, `instance`) e proprietà custom. ASP.NET Core offre `ProblemDetails` e `ProblemDetailsOptions` per implementarlo. Vedi [`tecnologie/csharp/14-problem-details`](tecnologie/csharp/14-problem-details.md).
+Standard RFC 9457 per il formato strutturato di risposte di errore HTTP. Usa il media type `application/problem+json` con campi fissi (`type`, `title`, `status`, `detail`, `instance`) e proprietà custom. ASP.NET Core offre `ProblemDetails` e `ProblemDetailsOptions` per implementarlo. Vedi [`tecnologie/csharp/pipeline/14-problem-details`](tecnologie/csharp/pipeline/14-problem-details.md).
 
 ## Pride versioning
 

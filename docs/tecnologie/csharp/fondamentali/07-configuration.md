@@ -162,7 +162,7 @@ Si usa il meccanismo di override di ASP.NET Core: `appsettings.Production.json` 
 }
 ```
 
-I segreti (password, connection string, API key) non vanno mai in `appsettings.json`. Si usano variabili d'ambiente o un secret manager. Vedi [regole/configurazione](../../regole/configurazione.md).
+I segreti (password, connection string, API key) non vanno mai in `appsettings.json`. Si usano variabili d'ambiente o un secret manager. Vedi [regole/configurazione](../../../regole/configurazione.md).
 
 ## Organizzazione consigliata
 

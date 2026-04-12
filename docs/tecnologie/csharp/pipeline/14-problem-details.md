@@ -395,6 +395,6 @@ I `ValidationResult` restituiti si aggiungono automaticamente a `ModelState`.
 
 5. **Documento il tuo catalogo di `type`** in una pagina dedicata (es. `/docs/api/error-codes`), così i client sanno cosa aspettarsi.
 
-Vedi anche: [regole/gestione-errori](../../regole/gestione-errori.md) · [13-exception-filter](13-exception-filter.md) · [10-middleware](10-middleware.md).
+Vedi anche: [regole/gestione-errori](../../../regole/gestione-errori.md) · [13-exception-filter](13-exception-filter.md) · [10-middleware](10-middleware.md).
 
 
