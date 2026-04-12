@@ -25,6 +25,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 
 ## B
 
+- **Background service** — [csharp/19-background-services](tecnologie/csharp/19-background-services.md) · [glossario](glossario#background-service)
 - **Backpressure** — [csharp/08-code-native](tecnologie/csharp/08-code-native.md) · [glossario](glossario#backpressure)
 - **Bearer Token** — [regole/autenticazione](regole/autenticazione.md)
 - **Branch (strategia)** — [regole/git](regole/git.md)
@@ -35,7 +36,10 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 
 - **Caso d'uso** — [glossario](glossario#caso-duso) · [analisi-tecnica/01](processi/analisi-tecnica/01-analisi-funzionale.md)
 - **Channel\<T\>** — [csharp/08-code-native](tecnologie/csharp/08-code-native.md)
-- **CancellationToken** — [csharp/15-async](tecnologie/csharp/15-async.md)
+- **Caching** — [csharp/20-caching](tecnologie/csharp/20-caching.md) · [glossario](glossario#caching)
+- **CancellationToken** — [csharp/15-async](tecnologie/csharp/15-async.md) · [csharp/19-background-services](tecnologie/csharp/19-background-services.md)
+- **Captive dependency** — [csharp/16-dependency-injection](tecnologie/csharp/16-dependency-injection.md) · [glossario](glossario#captive-dependency)
+- **Circuit breaker** — [csharp/21-resilience](tecnologie/csharp/21-resilience.md) · [glossario](glossario#circuit-breaker)
 - **CI/CD** — [processi/pipeline](processi/pipeline.md) · [regole/testing](regole/testing.md)
 - **ConcurrentQueue\<T\>** — [csharp/08-code-native](tecnologie/csharp/08-code-native.md)
 - **Clustered index** — [glossario](glossario#clustered-index) · [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
@@ -59,6 +63,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Dati duttili (principio)** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **DbContext** — [glossario](glossario#dbcontext) · [regole/entity-framework](regole/entity-framework.md)
 - **Definition of Done** — [glossario](glossario#definition-of-done) · [sviluppo/03](processi/sviluppo/03-validazione.md)
+- **Dependency Injection** — [csharp/16-dependency-injection](tecnologie/csharp/16-dependency-injection.md) · [glossario](glossario#dependency-injection-di)
 - **Dependency Inversion** — [regole/principi](regole/principi.md)
 - **Deprecazione** — [regole/dominio](regole/dominio.md) · [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **Docker** — [regole/ambienti](regole/ambienti.md)
@@ -78,6 +83,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 ## F
 
 - **Feature flag** — [glossario](glossario#feature-flag) · [regole/git](regole/git.md)
+- **FluentValidation** — [csharp/18-validation](tecnologie/csharp/18-validation.md) · [glossario](glossario#fluentvalidation)
 - **Fluent API** — [glossario](glossario#fluent-api) · [regole/entity-framework](regole/entity-framework.md)
 - **Flussi critici** — [analisi-tecnica/05](processi/analisi-tecnica/05-flussi.md)
 - **Force push (vietato)** — [regole/git](regole/git.md)
@@ -95,6 +101,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 
 - **IA (generazione test)** — [regole/testing](regole/testing.md) · [regole/entity-framework](regole/entity-framework.md)
 - **Idempotenza** — [glossario](glossario#idempotenza) · [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md) · [analisi-tecnica/06](processi/analisi-tecnica/06-nfr.md)
+- **IHttpClientFactory** — [csharp/17-httpclient](tecnologie/csharp/17-httpclient.md) · [glossario](glossario#ihttpclientfactory)
 - **ILogger\<T\>** — [regole/logging](regole/logging.md) · [regole/principi](regole/principi.md)
 - **Indici (database)** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **Indici univoci (idempotenza)** — [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md)
@@ -148,6 +155,9 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 
 ## R
 
+- **Record (C#)** — [csharp/22-records](tecnologie/csharp/22-records.md) · [glossario](glossario#record-c)
+- **Resilienza (HTTP)** — [csharp/21-resilience](tecnologie/csharp/21-resilience.md) · [glossario](glossario#resilienza-http)
+- **Retry** — [csharp/21-resilience](tecnologie/csharp/21-resilience.md)
 - **Refactoring (separazione commit)** — [regole/git](regole/git.md) · [sviluppo/02](processi/sviluppo/02-business-logic.md)
 - **Repository pattern (da evitare)** — [regole/entity-framework](regole/entity-framework.md)
 - **Resilienza** — [analisi-tecnica/06](processi/analisi-tecnica/06-nfr.md)
@@ -188,6 +198,8 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 ## V
 
 - **Validazione (staging)** — [sviluppo/03](processi/sviluppo/03-validazione.md)
+- **Validazione input** — [csharp/18-validation](tecnologie/csharp/18-validation.md)
+- **ValueTask\<T\>** — [csharp/15-async](tecnologie/csharp/15-async.md)
 - **Versionamento** — [regole/versionamento](regole/versionamento.md) · [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md)
 - **Versionamento (CalVer)** — [regole/versionamento](regole/versionamento.md)
 - **Versionamento contratti** — [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md)

@@ -21,6 +21,10 @@ Documento che descrive *cosa* il sistema deve fare dal punto di vista del busine
 
 Processo che traduce l'analisi funzionale in una soluzione implementabile: modello dati, contratti, flussi, requisiti non funzionali, piano. Vedi [`processi/analisi-tecnica`](processi/analisi-tecnica/index.md).
 
+## Background service
+
+Componente che gira in background per tutta la vita dell'applicazione, in parallelo con la gestione delle richieste HTTP. Si implementa estendendo `BackgroundService` e registrandolo con `AddHostedService`. Vedi [`tecnologie/csharp/19-background-services`](tecnologie/csharp/19-background-services.md).
+
 ## Backpressure
 
 Meccanismo con cui un consumatore segnala al produttore di rallentare perché non riesce a elaborare i messaggi abbastanza velocemente. In .NET si realizza con `Channel<T>` limitato (`BoundedChannelFullMode.Wait`). Vedi [`tecnologie/csharp/08-code-native`](tecnologie/csharp/08-code-native.md).
@@ -28,6 +32,18 @@ Meccanismo con cui un consumatore segnala al produttore di rallentare perché no
 ## Breaking change
 
 Modifica che rompe la compatibilità con quanto già in uso: rinomina di colonne o campi API, rimozione di entità, variazione di comportamento atteso. Richiede comunicazione immediata ai team dipendenti e un bump `MAJOR`. Vedi [`regole/versionamento`](regole/versionamento.md).
+
+## Caching
+
+Tecnica per memorizzare temporaneamente il risultato di operazioni costose (query DB, chiamate HTTP) e riutilizzarlo nelle richieste successive. In ASP.NET Core: `IMemoryCache` per cache in-process, `IDistributedCache` per cache condivisa tra istanze (Redis), output caching per risposte HTTP complete. Vedi [`tecnologie/csharp/20-caching`](tecnologie/csharp/20-caching.md).
+
+## Captive dependency
+
+Bug di configurazione DI in cui un servizio con lifetime più lungo (es. singleton) cattura una dipendenza con lifetime più breve (es. scoped). La dipendenza viene tenuta viva oltre il suo ciclo di vita previsto. Vedi [`tecnologie/csharp/16-dependency-injection`](tecnologie/csharp/16-dependency-injection.md).
+
+## Circuit breaker
+
+Pattern di resilienza che interrompe temporaneamente le chiamate a un servizio esterno dopo un numero sufficiente di errori consecutivi, evitando di sovraccaricare un sistema già in difficoltà. Il circuito torna operativo dopo un timeout. Vedi [`tecnologie/csharp/21-resilienza`](tecnologie/csharp/21-resilience.md).
 
 ## Caso d'uso
 
@@ -61,6 +77,10 @@ Classe EF che rappresenta la sessione con il database. Implementa il pattern Uni
 
 Criteri che un caso d'uso deve soddisfare per essere considerato completato: dominio aggiornato, test verdi, CI verde, deploy in staging, validazione end-to-end approvata. Vedi [`processi/sviluppo/03-validazione`](processi/sviluppo/03-validazione.md).
 
+## Dependency Injection (DI)
+
+Pattern per cui le dipendenze di una classe vengono fornite dall'esterno anziché create internamente. In ASP.NET Core il container DI integrato risolve le dipendenze automaticamente. I servizi si registrano con tre lifetimes: singleton, scoped, transient. Vedi [`tecnologie/csharp/16-dependency-injection`](tecnologie/csharp/16-dependency-injection.md).
+
 ## DTO
 
 *Data Transfer Object.* Modello usato per trasferire dati tra moduli o attraverso interfacce. Non è mai una copia 1:1 dell'entity del database: espone solo i campi necessari al chiamante, con nomi dall'Ubiquitous Language.
@@ -73,6 +93,10 @@ Filter MVC eseguito prima di ogni action per verificare se la request è autoriz
 
 Filter MVC che intercetta le eccezioni non gestite lanciate da action e filter. Consente di centralizzare la gestione degli errori a livello di controller con accesso al contesto MVC. Vedi [`tecnologie/csharp/13-exception-filter`](tecnologie/csharp/13-exception-filter.md).
 
+## FluentValidation
+
+Libreria per la validazione dell'input con un'API fluente. I validator sono classi separate (`AbstractValidator<T>`) testabili in isolamento. Preferita a DataAnnotations per regole condizionali, messaggi personalizzati o validazioni tra campi. Vedi [`tecnologie/csharp/18-validation`](tecnologie/csharp/18-validation.md).
+
 ## Feature flag
 
 Meccanismo che permette di abilitare o disabilitare funzionalità a runtime tramite configurazione, senza deploy. Rende possibile integrare codice incompleto su `main` senza esporlo agli utenti. I flag non sono permanenti: si rimuovono quando la funzionalità è stabile. Vedi [`regole/git`](regole/git.md).
@@ -80,6 +104,10 @@ Meccanismo che permette di abilitare o disabilitare funzionalità a runtime tram
 ## Fluent API
 
 Metodo di configurazione EF tramite classi `IEntityTypeConfiguration<T>`. Preferito alle Data Annotations perché mantiene le entity class pulite e concentra la configurazione in un unico posto.
+
+## IHttpClientFactory
+
+Interfaccia ASP.NET Core per creare istanze `HttpClient` con gestione corretta del ciclo di vita degli handler HTTP. Evita socket exhaustion e DNS stale. Si usa tramite typed client o named client. Vedi [`tecnologie/csharp/17-httpclient`](tecnologie/csharp/17-httpclient.md).
 
 ## Idempotenza
 
@@ -104,6 +132,14 @@ File generato da EF che descrive una modifica incrementale allo schema del datab
 ## NFR
 
 *Requisiti Non Funzionali.* Requisiti che descrivono *come* il sistema si comporta: performance, sicurezza, resilienza, tracciabilità, compatibilità. Vanno resi espliciti con metriche verificabili. Vedi [`processi/analisi-tecnica/06-nfr`](processi/analisi-tecnica/06-nfr.md).
+
+## Record (C#)
+
+Tipo reference con semantica di valore: l'uguaglianza è basata sul contenuto delle proprietà, non sull'identità in memoria. Le proprietà sono `init`-only per default (immutabili dopo la costruzione). Si copia con modifiche tramite `with`. Ideale per DTO, value object e response model. Vedi [`tecnologie/csharp/22-records`](tecnologie/csharp/22-records.md).
+
+## Resilienza (HTTP)
+
+Capacità di gestire errori transitori nelle chiamate a servizi esterni tramite retry, circuit breaker e timeout. In ASP.NET Core si configura con `Microsoft.Extensions.Http.Resilience` (built on Polly). Vedi [`tecnologie/csharp/21-resilience`](tecnologie/csharp/21-resilience.md).
 
 ## Result pattern
 
