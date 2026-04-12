@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.14](https://github.com/cagianx/bible/compare/v0.1.13...v0.1.14) (2026-04-12)
+
+
+### Bug Fixes
+
+* aggiorna link indice-analitico a 01-pattern dopo rename ([a6e524e](https://github.com/cagianx/bible/commit/a6e524e3e0eb0aeb89f8296411eec16a3eeea6c8))
+
+
+### Documentation
+
+* 01-pattern riscritto con diagrammi mermaid e tab PostgreSQL/SQL Server/SQLite ([b5481d0](https://github.com/cagianx/bible/commit/b5481d0a7758c7a4393886c560cef9bd0efbe6ae))
+* AsNoTracking è ridondante con Select — aggiunto tip ([586076b](https://github.com/cagianx/bible/commit/586076bde4abea1d44bc13e8c5d975e26e435b8b))
+* capitolo test unitari — logica pura, monitoraggio librerie, coltellino svizzero ([9365060](https://github.com/cagianx/bible/commit/936506053739fdf63b7c77a0aa542248ed10a461))
+* come scrivere test unitari — naming, AAA, parametrici, indipendenza ([c238398](https://github.com/cagianx/bible/commit/c238398f85cb261c461d01af03fc340ce1d4664e))
+* IQueryable come ritorno è preferibile per servizi interni ([62ee091](https://github.com/cagianx/bible/commit/62ee091b6cc71292ef57e4d5cd4a3d922b31506b))
+* sottosezione entity framework (code first, IQueryable, LINQ) e test di integrazione (NUnit, db usa e getta, FluentAssertions) ([5ebab8c](https://github.com/cagianx/bible/commit/5ebab8cc5967f0002b41abe973dd9672d8ea3fb5))
+* test integrazione — db clonato da template per ogni test, invalidazione cache via nome migration ([2f7f297](https://github.com/cagianx/bible/commit/2f7f297cfccdb27c1bbd2c5d9c45bfeb4938b6f2))
+* test integrazione — DI scope per test, servizi risolti dal container senza new ([2dd4b67](https://github.com/cagianx/bible/commit/2dd4b67c0e9d2acc48b236c9649eedd1af6c895d))
+* test integrazione split in 3 pagine, aggiunto testcontainers ([d6cb419](https://github.com/cagianx/bible/commit/d6cb41982285385af2431adda535ad49c0ce36b6))
+
 ## [0.1.13](https://github.com/cagianx/bible/compare/v0.1.12...v0.1.13) (2026-04-12)
 
 
