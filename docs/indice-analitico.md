@@ -83,7 +83,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 ## F
 
 - **Feature flag** — [glossario](glossario#feature-flag) · [regole/git](regole/git.md)
-- **FluentAssertions** — [csharp/test-integrazione/01-setup](tecnologie/csharp/test-integrazione/01-setup.md)
+- **FluentAssertions** — [csharp/test-integrazione/01-setup](tecnologie/csharp/test-integrazione/01-pattern.md)
 - **FluentValidation** — [csharp/18-validation](tecnologie/csharp/pipeline/18-validation.md) · [glossario](glossario#fluentvalidation)
 - **Fluent API** — [glossario](glossario#fluent-api) · [regole/entity-framework](regole/entity-framework.md)
 - **Flussi critici** — [analisi-tecnica/05](processi/analisi-tecnica/05-flussi.md)
@@ -134,7 +134,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 ## N
 
 - **N+1 (problema)** — [csharp/entity-framework/02-queryable-vs-list](tecnologie/csharp/entity-framework/02-queryable-vs-list.md) · [glossario](glossario#n1-problema)
-- **NUnit** — [csharp/test-integrazione/01-setup](tecnologie/csharp/test-integrazione/01-setup.md)
+- **NUnit** — [csharp/test-integrazione/01-setup](tecnologie/csharp/test-integrazione/01-pattern.md)
 - **NFR (requisiti non funzionali)** — [glossario](glossario#nfr) · [analisi-tecnica/06](processi/analisi-tecnica/06-nfr.md)
 
 ## O
