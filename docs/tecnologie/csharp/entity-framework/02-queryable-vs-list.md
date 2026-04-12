@@ -107,16 +107,23 @@ var dto = await _db.Ordini
 
 ## IQueryable come parametro o ritorno
 
-Restituire `IQueryable<T>` da un metodo è una forma di astrazione leaky: la query viene materializzata fuori dal metodo, potenzialmente fuori dalla durata del `DbContext`.
+Restituire `IQueryable<T>` da metodi interni è il pattern preferito per i servizi che operano sullo stesso `DbContext`: permette al chiamante di comporre filtri, ordinamenti e proiezioni aggiuntivi prima della materializzazione, producendo un'unica query efficiente invece di query multiple o filtraggio in memoria.
 
 ```csharp
-// ❌ Chi chiama questo metodo materializza la query fuori dal suo controllo
+// ✅ Il chiamante compone liberamente — una sola query SQL alla fine
 public IQueryable<Ordine> GetOrdiniAttivi()
     => _db.Ordini.Where(o => o.Attivo);
 
-// ✅ Il metodo controlla la materializzazione
-public async Task<List<Ordine>> GetOrdiniAttiviAsync(CancellationToken ct)
-    => await _db.Ordini.Where(o => o.Attivo).AsNoTracking().ToListAsync(ct);
+// Nel caso d'uso:
+var ordiniRecenti = await _servizio.GetOrdiniAttivi()
+    .Where(o => o.DataCreazione > DateTime.UtcNow.AddDays(-30))
+    .OrderByDescending(o => o.DataCreazione)
+    .Select(o => new OrdineDto(o.Id, o.Numero, o.DataCreazione))
+    .ToListAsync(ct);
 ```
+
+La materializzazione rimane responsabilità del caso d'uso, che conosce il contesto completo: quali filtri applicare, se serve paginazione, quale proiezione è necessaria.
+
+Questo pattern funziona finché il `DbContext` è vivo al momento della materializzazione — condizione sempre vera nei servizi scoped a una richiesta HTTP. Restituire `IQueryable` oltre il confine del processo o verso layer che non condividono il `DbContext` rimane un errore.
 
 Fanno eccezione i metodi privati interni a un caso d'uso, dove la composizione controllata ha senso e il `DbContext` è garantito essere ancora vivo.
