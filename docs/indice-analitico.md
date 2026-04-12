@@ -187,7 +187,8 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 
 ## T
 
-- **Test di integrazione** — [regole/testing](regole/testing.md) · [csharp/test-integrazione/01-setup](tecnologie/csharp/test-integrazione/01-setup.md) · [sviluppo/01](processi/sviluppo/01-dominio.md) · [sviluppo/02](processi/sviluppo/02-business-logic.md)
+- **Test di integrazione** — [regole/testing](regole/testing.md) · [csharp/test-integrazione](tecnologie/csharp/test-integrazione/01-pattern.md)
+- **Testcontainers** — [csharp/test-integrazione/03-testcontainers](tecnologie/csharp/test-integrazione/03-testcontainers.md) · [sviluppo/01](processi/sviluppo/01-dominio.md) · [sviluppo/02](processi/sviluppo/02-business-logic.md)
 - **Test end-to-end** — [regole/testing](regole/testing.md) · [sviluppo/03](processi/sviluppo/03-validazione.md)
 - **Test unitari** — [regole/testing](regole/testing.md)
 - **Transazionalità (sistemi esterni)** — [analisi-tecnica/05](processi/analisi-tecnica/05-flussi.md)

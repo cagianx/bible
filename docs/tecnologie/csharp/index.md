@@ -38,5 +38,7 @@ Convenzioni, pattern e riferimenti tecnici per lo sviluppo con C# e ASP.NET Core
 - [LINQ con Entity Framework](entity-framework/03-linq.md) — proiezioni, paginazione, Include, SQL grezzo
 
 ### Test di integrazione
-- [Setup — database usa e getta](test-integrazione/01-setup.md) — classe base NUnit, PostgreSQL per test, FluentAssertions
+- [Pattern: template e scope](test-integrazione/01-pattern.md) — classe base NUnit, clone da template, scope DI per test
+- [Scrivere un test](test-integrazione/02-scrivere-test.md) — `Get<T>()`, `SeedAsync`, FluentAssertions, parallelismo
+- [Testcontainers](test-integrazione/03-testcontainers.md) — PostgreSQL in Docker, nessuna dipendenza locale
 
