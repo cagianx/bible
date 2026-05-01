@@ -16,7 +16,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Analisi funzionale** — [analisi-tecnica/01](processi/analisi-tecnica/01-analisi-funzionale.md) · [glossario](glossario#analisi-funzionale)
 - **Analisi tecnica** — [analisi-tecnica/index](processi/analisi-tecnica/index.md) · [glossario](glossario#analisi-tecnica)
 - **API Key** — [regole/autenticazione](regole/autenticazione.md)
-- **Architettura (struttura solution)** — [regole/architettura](regole/architettura.md)
+- **Architettura (struttura solution)** — [regole/architettura](regole/architettura.md) · [csharp/struttura-soluzione](tecnologie/csharp/struttura-soluzione/01-struttura-fisica.md)
 - **Audit** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md) · [analisi-tecnica/06](processi/analisi-tecnica/06-nfr.md)
 - **Autenticazione** — [regole/autenticazione](regole/autenticazione.md)
 - **Autorizzazione** — [regole/autenticazione](regole/autenticazione.md) · [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md)
@@ -38,7 +38,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Channel\<T\>** — [csharp/08-code-native](tecnologie/csharp/concorrenza/08-code-native.md)
 - **Caching** — [csharp/20-caching](tecnologie/csharp/integrazione/20-caching.md) · [glossario](glossario#caching)
 - **CancellationToken** — [csharp/15-async](tecnologie/csharp/linguaggio/15-async.md) · [csharp/19-background-services](tecnologie/csharp/concorrenza/19-background-services.md)
-- **Captive dependency** — [csharp/16-dependency-injection](tecnologie/csharp/fondamentali/16-dependency-injection.md) · [glossario](glossario#captive-dependency)
+- **Captive dependency** — [csharp/16-dependency-injection](tecnologie/csharp/16-dependency-injection.md) · [glossario](glossario#captive-dependency)
 - **Circuit breaker** — [csharp/21-resilience](tecnologie/csharp/integrazione/21-resilience.md) · [glossario](glossario#circuit-breaker)
 - **CI/CD** — [processi/pipeline](processi/pipeline.md) · [regole/testing](regole/testing.md)
 - **ConcurrentQueue\<T\>** — [csharp/08-code-native](tecnologie/csharp/concorrenza/08-code-native.md)
@@ -47,6 +47,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Codice difensivo (da evitare)** — [regole/dominio](regole/dominio.md) · [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md) · [regole/gestione-errori](regole/gestione-errori.md)
 - **Combinazioni inconsistenti** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **Commit** — [regole/git](regole/git.md) · [sviluppo/02](processi/sviluppo/02-business-logic.md)
+- **Commands (livello)** — vedi [UseCases (livello)](#u)
 - **Compensazioni** — [analisi-tecnica/05](processi/analisi-tecnica/05-flussi.md)
 - **Configurazione** — [regole/configurazione](regole/configurazione.md)
 - **Constraint (database)** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md) · [regole/entity-framework](regole/entity-framework.md) · [regole/dominio](regole/dominio.md)
@@ -63,7 +64,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Dati duttili (principio)** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **DbContext** — [glossario](glossario#dbcontext) · [regole/entity-framework](regole/entity-framework.md)
 - **Definition of Done** — [glossario](glossario#definition-of-done) · [sviluppo/03](processi/sviluppo/03-validazione.md)
-- **Dependency Injection** — [csharp/16-dependency-injection](tecnologie/csharp/fondamentali/16-dependency-injection.md) · [glossario](glossario#dependency-injection-di)
+- **Dependency Injection** — [csharp/16-dependency-injection](tecnologie/csharp/16-dependency-injection.md) · [glossario](glossario#dependency-injection-di)
 - **Dependency Inversion** — [regole/principi](regole/principi.md)
 - **Deprecazione** — [regole/dominio](regole/dominio.md) · [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **Docker** — [regole/ambienti](regole/ambienti.md)
@@ -100,6 +101,8 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 
 ## I
 
+- **Integrazioni (progetti)** — [csharp/struttura-soluzione/06](tecnologie/csharp/struttura-soluzione/06-integrazioni.md)
+
 - **IA (generazione test)** — [regole/testing](regole/testing.md) · [regole/entity-framework](regole/entity-framework.md)
 - **Idempotenza** — [glossario](glossario#idempotenza) · [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md) · [analisi-tecnica/06](processi/analisi-tecnica/06-nfr.md)
 - **IHttpClientFactory** — [csharp/17-httpclient](tecnologie/csharp/integrazione/17-httpclient.md) · [glossario](glossario#ihttpclientfactory)
@@ -108,8 +111,8 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Indici (database)** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **Indici univoci (idempotenza)** — [analisi-tecnica/04](processi/analisi-tecnica/04-contratti.md)
 - **Interface Segregation** — [regole/principi](regole/principi.md)
-- **IOptions\<T\>** — [csharp/07-configuration](tecnologie/csharp/fondamentali/07-configuration.md) · [glossario](glossario#ioptionst)
-- **IOptionsMonitor\<T\>** — [csharp/07-configuration](tecnologie/csharp/fondamentali/07-configuration.md)
+- **IOptions\<T\>** — [csharp/07-configuration](tecnologie/csharp/07-configuration.md) · [glossario](glossario#ioptionst)
+- **IOptionsMonitor\<T\>** — [csharp/07-configuration](tecnologie/csharp/07-configuration.md)
 - **IUseCase** — [glossario](glossario#iusecase) · [sviluppo/02](processi/sviluppo/02-business-logic.md)
 
 ## J
@@ -127,6 +130,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 ## M
 
 - **Mermaid** — [regole/documentazione](regole/documentazione.md) · [analisi-tecnica/05](processi/analisi-tecnica/05-flussi.md)
+- **Models (progetto)** — [csharp/struttura-soluzione/07](tecnologie/csharp/struttura-soluzione/07-models.md)
 - **Middleware** — [csharp/10-middleware](tecnologie/csharp/pipeline/10-middleware.md) · [glossario](glossario#middleware)
 - **Migration** — [glossario](glossario#migration) · [regole/entity-framework](regole/entity-framework.md) · [sviluppo/01](processi/sviluppo/01-dominio.md)
 - **Modellazione dati** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
@@ -166,13 +170,13 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Refactoring (separazione commit)** — [regole/git](regole/git.md) · [sviluppo/02](processi/sviluppo/02-business-logic.md)
 - **Repository pattern (da evitare)** — [regole/entity-framework](regole/entity-framework.md)
 - **Resilienza** — [analisi-tecnica/06](processi/analisi-tecnica/06-nfr.md)
-- **Result pattern** — [glossario](glossario#result-pattern) · [regole/gestione-errori](regole/gestione-errori.md)
+- **Result pattern** — [glossario](glossario#result-pattern) · [regole/gestione-errori](regole/gestione-errori.md) · [csharp/struttura-soluzione/07](tecnologie/csharp/struttura-soluzione/07-models.md)
 - **Retrocompatibilità** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md) · [regole/entity-framework](regole/entity-framework.md)
 
 ## S
 
 - **SaveChanges** — [regole/entity-framework](regole/entity-framework.md) · [sviluppo/02](processi/sviluppo/02-business-logic.md)
-- **Screaming Architecture** — [glossario](glossario#screaming-architecture) · [regole/architettura](regole/architettura.md)
+- **Screaming Architecture** — [glossario](glossario#screaming-architecture) · [regole/architettura](regole/architettura.md) · [csharp/struttura-soluzione/03](tecnologie/csharp/struttura-soluzione/03-organizzazione-core.md)
 - **Scrittura difficile, lettura facile** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md) · [regole/dominio](regole/dominio.md)
 - **Secrets** — [regole/configurazione](regole/configurazione.md) · [regole/autenticazione](regole/autenticazione.md)
 - **Semantic Versioning** — [glossario](glossario#semantic-versioning) · [regole/versionamento](regole/versionamento.md)
@@ -180,7 +184,7 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 - **Single Responsibility** — [regole/principi](regole/principi.md)
 - **Soft delete** — [glossario](glossario#soft-delete) · [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
 - **Solidità del modello (test)** — [regole/testing](regole/testing.md)
-- **Solution (struttura)** — [regole/architettura](regole/architettura.md)
+- **Solution (struttura)** — [regole/architettura](regole/architettura.md) · [csharp/struttura-soluzione](tecnologie/csharp/struttura-soluzione/01-struttura-fisica.md)
 - **Spike** — [glossario](glossario#spike) · [analisi-tecnica/07](processi/analisi-tecnica/07-piano.md)
 - **Staging** — [glossario](glossario#staging) · [regole/ambienti](regole/ambienti.md) · [sviluppo/03](processi/sviluppo/03-validazione.md)
 - **Stati e transizioni** — [analisi-tecnica/03](processi/analisi-tecnica/03-modellazione.md)
@@ -201,8 +205,9 @@ Riferimento rapido per trovare dove ogni concetto è trattato nella documentazio
 ## U
 
 - **Ubiquitous Language** — [glossario](glossario#ubiquitous-language) · [regole/dominio](regole/dominio.md) · [regole/entity-framework](regole/entity-framework.md)
-- **Unit of Work** — [glossario](glossario#unit-of-work) · [regole/entity-framework](regole/entity-framework.md)
+- **Unit of Work** — [glossario](glossario#unit-of-work) · [regole/entity-framework](regole/entity-framework.md) · [csharp/struttura-soluzione/04](tecnologie/csharp/struttura-soluzione/04-usecases.md)
 - **Unix Philosophy** — [regole/principi](regole/principi.md)
+- **UseCases (livello)** — [csharp/struttura-soluzione/04](tecnologie/csharp/struttura-soluzione/04-usecases.md)
 
 ## V
 

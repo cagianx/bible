@@ -79,7 +79,7 @@ public class EmailWorker : BackgroundService
 }
 ```
 
-Il `DbContext` è scoped, ma `BackgroundService` è singleton. Si usa sempre `IServiceScopeFactory` per creare uno scope per ogni unità di lavoro. Vedi [16-dependency-injection](../fondamentali/16-dependency-injection.md).
+Il `DbContext` è scoped, ma `BackgroundService` è singleton. Si usa sempre `IServiceScopeFactory` per creare uno scope per ogni unità di lavoro. Vedi [16-dependency-injection](../16-dependency-injection.md).
 
 Registrazione:
 

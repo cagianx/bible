@@ -1,5 +1,5 @@
 ---
-sidebar_position: 16
+sidebar_position: 2
 description: Dependency Injection in ASP.NET Core — lifetimes, registrazione, errori tipici e pattern avanzati.
 ---
 

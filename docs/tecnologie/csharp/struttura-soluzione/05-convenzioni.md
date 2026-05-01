@@ -1,68 +1,13 @@
 ---
-sidebar_position: 1
-description: Struttura ideale di una solution .NET, convenzioni di naming e organizzazione AI-friendly.
+sidebar_position: 5
+description: Convenzioni per una solution .NET leggibile da sviluppatori e agenti IA — naming esplicito, un file per classe, record per comandi e DTO, interfacce solo dove necessario, Program.cs minimal.
 ---
 
-# Struttura della Solution
-
-## Struttura minima
-
-```
-NomeSoluzione/
-├── NomeSoluzione.sln
-├── src/
-│   ├── NomeSoluzione.Core/          # Business logic, entità, interfacce
-│   ├── NomeSoluzione.Db/            # EF DbContext, migration, configurazioni
-│   └── NomeSoluzione.Api/           # ASP.NET Core — entry point HTTP
-└── tests/
-    └── NomeSoluzione.Tests/         # Test di integrazione
-```
-
-Ogni progetto aggiuntivo (Worker, Console, Job) segue lo stesso schema: dipende da `Core`, non da `Db` direttamente salvo necessità.
-
-## Dipendenze
-
-```
-Api  ──▶  Core  ◀──  Db
-Tests ──▶ Core
-Tests ──▶ Db
-```
-
-`Core` non dipende da nessuno. `Db` dipende da `Core` (implementa le sue interfacce). `Api` dipende da `Core` e registra le dipendenze concrete via DI.
-
-## Organizzazione interna di Core
-
-Si organizza per **dominio**, non per tipo tecnico (Screaming Architecture):
-
-```
-NomeSoluzione.Core/
-├── Ordini/
-│   ├── Ordine.cs                    # Entity
-│   ├── OrdineStato.cs               # Enum di dominio
-│   ├── CreaOrdine.cs                # IUseCase
-│   ├── ConfermaOrdine.cs            # IUseCase
-│   └── GestoreScorte.cs             # Domain service
-├── Clienti/
-│   ├── Cliente.cs
-│   └── RegistraCliente.cs
-└── Shared/
-    ├── IUseCase.cs
-    └── Result.cs
-```
-
-❌ Da evitare:
-```
-Core/
-├── Services/
-├── Repositories/
-└── Models/
-```
-
-## Convenzioni AI-friendly
+# Convenzioni
 
 Una solution ben strutturata è leggibile non solo dagli sviluppatori ma anche dall'IA che ci lavora. Le convenzioni che seguono massimizzano la comprensibilità contestuale senza richiedere spiegazioni aggiuntive.
 
-### Naming esplicito
+## Naming esplicito
 
 I nomi descrivono l'intenzione, non il tipo:
 
@@ -77,7 +22,7 @@ public class OrdineService { }
 public class OrdineManager { }
 ```
 
-### Un file, una responsabilità
+## Un file, una responsabilità
 
 Ogni file contiene una sola classe. Il nome del file coincide con il nome della classe.
 
@@ -87,7 +32,7 @@ OrdineStato.cs       → enum OrdineStato
 CreaOrdineCommand.cs → record CreaOrdineCommand
 ```
 
-### Record per comandi e DTO
+## Record per comandi e DTO
 
 I comandi e i DTO si esprimono come `record`, immutabili per costruzione:
 
@@ -96,7 +41,7 @@ public record CreaOrdineCommand(Guid ClienteId, IReadOnlyList<RigaOrdine> Righe)
 public record RigaOrdine(Guid ProdottoId, int Quantita);
 ```
 
-### Interfacce solo dove necessario
+## Interfacce solo dove necessario
 
 Un'interfaccia si introduce quando serve sostituibilità reale (test, implementazioni multiple). Non si crea un'interfaccia per ogni classe per abitudine:
 
@@ -109,7 +54,7 @@ public interface IGestoreScorte { }
 public class GestoreScorte : IGestoreScorte { }
 ```
 
-### Program.cs minimal
+## Program.cs minimal
 
 `Program.cs` registra le dipendenze e avvia l'app. Non contiene logica:
 

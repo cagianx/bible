@@ -39,7 +39,7 @@ Tecnica per memorizzare temporaneamente il risultato di operazioni costose (quer
 
 ## Captive dependency
 
-Bug di configurazione DI in cui un servizio con lifetime più lungo (es. singleton) cattura una dipendenza con lifetime più breve (es. scoped). La dipendenza viene tenuta viva oltre il suo ciclo di vita previsto. Vedi [`tecnologie/csharp/fondamentali/16-dependency-injection`](tecnologie/csharp/fondamentali/16-dependency-injection.md).
+Bug di configurazione DI in cui un servizio con lifetime più lungo (es. singleton) cattura una dipendenza con lifetime più breve (es. scoped). La dipendenza viene tenuta viva oltre il suo ciclo di vita previsto. Vedi [`tecnologie/csharp/16-dependency-injection`](tecnologie/csharp/16-dependency-injection.md).
 
 ## Circuit breaker
 
@@ -67,7 +67,11 @@ Accordo formale tra componenti su come comunicano: schema request/response, erro
 
 ## Core
 
-Progetto C# che contiene tutta la business logic, le entity di dominio e le interfacce verso l'esterno. Non dipende da Entity Framework, ASP.NET Core o qualsiasi altro framework infrastrutturale. Vedi [`regole/architettura`](regole/architettura.md).
+Progetto C# che contiene la logica di dominio: domain service, validator, use case e DI extension organizzati per dominio (Screaming Architecture). Le entità vivono in Db, i DTO ed enum in Models, le integrazioni nei progetti dedicati. Vedi [`tecnologie/csharp/struttura-soluzione/03-organizzazione-core`](tecnologie/csharp/struttura-soluzione/03-organizzazione-core.md) · [`regole/architettura`](regole/architettura.md).
+
+## Composition root
+
+Punto centrale della solution dove si compone il grafo delle dipendenze: si registrano via DI le implementazioni concrete che soddisfano le interfacce usate dal codice. In ASP.NET Core è `Program.cs` del progetto Api; non contiene logica, solo registrazioni — tipicamente raggruppate in extension method per dominio (`AddOrdini()`, `AddClienti()`). Vedi [`tecnologie/csharp/struttura-soluzione/02-dipendenze`](tecnologie/csharp/struttura-soluzione/02-dipendenze.md).
 
 ## DbContext
 
@@ -79,11 +83,11 @@ Criteri che un caso d'uso deve soddisfare per essere considerato completato: dom
 
 ## Dependency Injection (DI)
 
-Pattern per cui le dipendenze di una classe vengono fornite dall'esterno anziché create internamente. In ASP.NET Core il container DI integrato risolve le dipendenze automaticamente. I servizi si registrano con tre lifetimes: singleton, scoped, transient. Vedi [`tecnologie/csharp/fondamentali/16-dependency-injection`](tecnologie/csharp/fondamentali/16-dependency-injection.md).
+Pattern per cui le dipendenze di una classe vengono fornite dall'esterno anziché create internamente. In ASP.NET Core il container DI integrato risolve le dipendenze automaticamente. I servizi si registrano con tre lifetimes: singleton, scoped, transient. Vedi [`tecnologie/csharp/16-dependency-injection`](tecnologie/csharp/16-dependency-injection.md).
 
 ## DTO
 
-*Data Transfer Object.* Modello usato per trasferire dati tra moduli o attraverso interfacce. Non è mai una copia 1:1 dell'entity del database: espone solo i campi necessari al chiamante, con nomi dall'Ubiquitous Language.
+*Data Transfer Object.* Modello usato per trasferire dati tra moduli o attraverso interfacce. Non è mai una copia 1:1 dell'entity del database: espone solo i campi necessari al chiamante, con nomi dall'Ubiquitous Language. Vivono nel progetto Models, organizzati per dominio. Vedi [`tecnologie/csharp/struttura-soluzione/07-models`](tecnologie/csharp/struttura-soluzione/07-models.md).
 
 ## Authorization filter
 
@@ -117,13 +121,17 @@ Interfaccia che rappresenta una query non ancora eseguita su un database. EF tra
 
 Proprietà di un'operazione che produce lo stesso risultato indipendentemente da quante volte viene eseguita con gli stessi input. Obbligatoria per operazioni critiche per gestire retry e timeout. Vedi [`processi/analisi-tecnica/04-contratti`](processi/analisi-tecnica/04-contratti.md).
 
+## Integrazioni (progetti di)
+
+Progetti che isolano client HTTP/SOAP, librerie esterne (html2pdf, MailKit) e integrazioni con sistemi terzi. Espongono interfacce ad-hoc che wrappano la libreria sottostante: Core usa l'interfaccia, la libreria resta confinata nel progetto e non si propaga al resto della solution. Vedi [`tecnologie/csharp/struttura-soluzione/06-integrazioni`](tecnologie/csharp/struttura-soluzione/06-integrazioni.md).
+
 ## IOptions\<T\>
 
-Interfaccia ASP.NET Core per accedere alla configurazione tipizzata. Legge il valore una sola volta all'avvio. `IOptionsMonitor<T>` aggiorna il valore automaticamente se `appsettings.json` cambia. `IOptionsSnapshot<T>` ricalcola il valore per ogni request. Vedi [`tecnologie/csharp/fondamentali/07-configuration`](tecnologie/csharp/fondamentali/07-configuration.md).
+Interfaccia ASP.NET Core per accedere alla configurazione tipizzata. Legge il valore una sola volta all'avvio. `IOptionsMonitor<T>` aggiorna il valore automaticamente se `appsettings.json` cambia. `IOptionsSnapshot<T>` ricalcola il valore per ogni request. Vedi [`tecnologie/csharp/07-configuration`](tecnologie/csharp/07-configuration.md).
 
 ## IUseCase
 
-Interfaccia marker che identifica formalmente le classi che implementano un caso d'uso. Tutto ciò che implementa `IUseCase` è un caso d'uso; tutto il resto è un servizio che partecipa alla Unit of Work. Vedi [`regole/entity-framework`](regole/entity-framework.md).
+Interfaccia marker che identifica formalmente le classi che implementano un caso d'uso. Tutto ciò che implementa `IUseCase` è un caso d'uso; tutto il resto è un servizio che partecipa alla Unit of Work. Vedi [`tecnologie/csharp/struttura-soluzione/04-usecases`](tecnologie/csharp/struttura-soluzione/04-usecases.md) · [`regole/entity-framework`](regole/entity-framework.md).
 
 ## Middleware
 
@@ -132,6 +140,10 @@ Componente della pipeline HTTP di ASP.NET Core che elabora ogni request e respon
 ## Migration
 
 File generato da EF che descrive una modifica incrementale allo schema del database. Il nome deve essere descrittivo della decisione di dominio. Le migration non si modificano dopo il push su `main`. Vedi [`regole/entity-framework`](regole/entity-framework.md).
+
+## Models (progetto)
+
+Progetto che raccoglie i tipi condivisi tra Db, Core, UseCases e Api: DTO, enum di dominio e `Result<T>`. Contiene tipi puri, non comportamento: niente logica di business, niente validazione, niente factory di dominio. Non dipende da nessun altro progetto della solution. Vedi [`tecnologie/csharp/struttura-soluzione/07-models`](tecnologie/csharp/struttura-soluzione/07-models.md).
 
 ## N+1 (problema)
 
@@ -151,7 +163,7 @@ Capacità di gestire errori transitori nelle chiamate a servizi esterni tramite 
 
 ## Result pattern
 
-Pattern che incapsula l'esito di un'operazione in un oggetto `Result<T>`, distinguendo esplicitamente successo e fallimento senza usare eccezioni per il controllo del flusso. Vedi [`regole/gestione-errori`](regole/gestione-errori.md).
+Pattern che incapsula l'esito di un'operazione in un oggetto `Result<T>`, distinguendo esplicitamente successo e fallimento senza usare eccezioni per il controllo del flusso. `Result<T>` vive in Models, prodotto da UseCases e consumato da Api. Vedi [`tecnologie/csharp/struttura-soluzione/07-models`](tecnologie/csharp/struttura-soluzione/07-models.md) · [`regole/gestione-errori`](regole/gestione-errori.md).
 
 ## Problem Details
 
@@ -191,4 +203,8 @@ Linguaggio condiviso tra developer, analisti e stakeholder: i nomi del dominio s
 
 ## Unit of Work
 
-Pattern che raggruppa più operazioni in una singola transazione. In EF, `DbContext` è già una Unit of Work. I servizi di dominio partecipano senza chiuderla — è il caso d'uso che chiama `SaveChanges()`. Vedi [`regole/entity-framework`](regole/entity-framework.md).
+Pattern che raggruppa più operazioni in una singola transazione. In EF, `DbContext` è già una Unit of Work. I servizi di dominio partecipano senza chiuderla — è il caso d'uso (in UseCases) che chiama `SaveChanges()`. Vedi [`tecnologie/csharp/struttura-soluzione/04-usecases`](tecnologie/csharp/struttura-soluzione/04-usecases.md) · [`regole/entity-framework`](regole/entity-framework.md).
+
+## UseCases (livello)
+
+Livello tra Core e i progetti di alto livello (Api, Console, Worker). Contiene i comandi completi: orchestrano i servizi di Core, chiudono la unit of work con `SaveChanges` e restituiscono un `Result`. Spesso vive come sottocartella di Core (`Core/UseCases/`); diventa progetto first-class quando cresce. Vedi [`tecnologie/csharp/struttura-soluzione/04-usecases`](tecnologie/csharp/struttura-soluzione/04-usecases.md).
