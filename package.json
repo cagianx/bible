@@ -20,6 +20,7 @@
   "dependencies": {
     "@docusaurus/core": "3.10.1",
     "@docusaurus/faster": "^3.10.1",
+    "@docusaurus/plugin-sitemap": "^3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
     "@docusaurus/theme-mermaid": "^3.10.1",
     "@fontsource/cascadia-code": "^5.2.3",
