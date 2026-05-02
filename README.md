@@ -1,4 +1,4 @@
-# Dev Bible
+# MyDocs
 
 A collection of principles, rules and processes for writing maintainable software. Not tied to a specific project or team — it describes a particular point of view on software development: opinionated, consistent, and grounded in decades of established practice.
 
@@ -9,8 +9,8 @@ The documentation lives in the repository alongside the code. Same git history, 
 ## Run locally
 
 ```bash
-git clone https://github.com/cagianx/bible.git
-cd bible
+git clone https://github.com/cagianx/my-docs.git
+cd my-docs
 pnpm install && pnpm start
 ```
 

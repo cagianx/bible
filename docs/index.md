@@ -4,7 +4,7 @@ sidebar_position: 1
 description: Raccolta di principi, regole e processi per lo sviluppo di software manutenibile, testabile e comprensibile nel tempo.
 ---
 
-# Dev Bible
+# MyDocs
 
 Una raccolta di principi, regole e processi sullo sviluppo software. Non descrive un progetto specifico né le convenzioni di un team particolare — descrive un punto di vista su come si scrive software manutenibile, testabile e comprensibile nel tempo.
 
@@ -28,4 +28,4 @@ Per capire la filosofia di fondo: [Principi](regole/principi.md).
 
 Per iniziare uno sviluppo: [Analisi Tecnica](processi/analisi-tecnica/index.md) → [Sviluppo](processi/sviluppo/index.md).
 
-Per integrare il bible in un progetto reale: [Uso con IA](uso-con-ia.md).
+Per integrare MyDocs in un progetto reale: [Uso con IA](uso-con-ia.md).

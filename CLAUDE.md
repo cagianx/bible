@@ -30,8 +30,8 @@ This is a **Docusaurus 3.9** documentation site with Mermaid diagram support.
 L'ambiente deve essere operativo con tre comandi dopo il clone:
 
 ```bash
-git clone https://github.com/cagianx/bible.git
-cd bible
+git clone https://github.com/cagianx/my-docs.git
+cd my-docs
 pnpm install && pnpm start
 ```
 

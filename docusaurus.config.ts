@@ -8,7 +8,7 @@ const {version} = require('./package.json');
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Dev Bible',
+  title: 'MyDocs',
   tagline: 'Regole, principi e processi per lo sviluppo software',
   favicon: 'img/logo.svg',
 
@@ -22,7 +22,7 @@ const config: Config = {
   baseUrl: '/',
 
   organizationName: 'cagianx',
-  projectName: 'bible',
+  projectName: 'my-docs',
 
   onBrokenLinks: 'throw',
 
@@ -39,7 +39,7 @@ const config: Config = {
       attributes: {
         name: 'description',
         content:
-          'Dev Bible — raccolta di regole, principi e processi per lo sviluppo di software manutenibile, testabile e comprensibile nel tempo.',
+          'MyDocs — raccolta di regole, principi e processi per lo sviluppo di software manutenibile, testabile e comprensibile nel tempo.',
       },
     },
     {
@@ -73,7 +73,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/cagianx/bible/tree/main/',
+          editUrl: 'https://github.com/cagianx/my-docs/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -83,7 +83,7 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/cagianx/bible/tree/main/',
+          editUrl: 'https://github.com/cagianx/my-docs/tree/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -109,9 +109,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Dev Bible',
+      title: 'MyDocs',
       logo: {
-        alt: 'Dev Bible',
+        alt: 'MyDocs',
         src: 'img/logo.svg',
       },
       items: [
@@ -122,7 +122,7 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          href: 'https://github.com/cagianx/bible',
+          href: 'https://github.com/cagianx/my-docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -145,7 +145,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/cagianx/bible',
+              href: 'https://github.com/cagianx/my-docs',
             },
             {
               label: 'License (CC BY-SA 4.0)',

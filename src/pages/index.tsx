@@ -19,6 +19,24 @@ const sections = [
       'Come si lavora: dall\'analisi tecnica allo sviluppo, dalla pipeline CI/CD al ciclo di rilascio.',
     to: '/docs/processi/analisi-tecnica',
   },
+  {
+    title: 'Glossario',
+    description:
+      'Termini tecnici e di dominio usati nella documentazione e nel codice. Un linguaggio condiviso, senza sinonimi né traduzioni casuali.',
+    to: '/docs/glossario',
+  },
+  {
+    title: 'Indice analitico',
+    description:
+      'Punto di partenza per cercare concetti nella documentazione. Mappa ogni argomento alla pagina dove è trattato per esteso.',
+    to: '/docs/indice-analitico',
+  },
+  {
+    title: 'Uso con IA',
+    description:
+      'Come integrare questa guida in un progetto reale come knowledge base per agenti IA: sottomodulo git, riferimenti puntuali, glossario condiviso.',
+    to: '/docs/uso-con-ia',
+  },
 ];
 
 export default function Home(): ReactNode {
@@ -30,12 +48,19 @@ export default function Home(): ReactNode {
           <div className="container">
             <Heading as="h1">{siteConfig.title}</Heading>
             <p className={styles.subtitle}>
-              Regole, principi e processi che guidano lo sviluppo software del team.
-              Una fonte di verità condivisa, versionata insieme al codice.
+              Una posizione sullo sviluppo software. Regole, principi e processi
+              per scrivere codice che si lascia leggere, modificare e mantenere
+              nel tempo.
             </p>
-            <Link className="button button--primary button--lg" to="/docs/">
-              Vai alla documentazione
-            </Link>
+            <p className={styles.subtitle}>
+              Non verità universali: una prospettiva argomentata, più o meno
+              condivisibile, indipendente da chi la legge.
+            </p>
+            <div className={styles.cta}>
+              <Link className="button button--primary button--lg" to="/docs/">
+                Vai alla documentazione
+              </Link>
+            </div>
           </div>
         </div>
 

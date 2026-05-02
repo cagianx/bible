@@ -13,8 +13,8 @@ Un ambiente difficile da avviare è un costo nascosto: rallenta chi inizia, scor
 ## Avvio in tre comandi
 
 ```bash
-git clone https://github.com/cagianx/bible.git
-cd bible
+git clone https://github.com/cagianx/my-docs.git
+cd my-docs
 pnpm install && pnpm start
 ```
 
